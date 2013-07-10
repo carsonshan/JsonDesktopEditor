@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="JIDE">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/JIDE" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/JIDE" recursive="false" />
+  </library>
+</component>

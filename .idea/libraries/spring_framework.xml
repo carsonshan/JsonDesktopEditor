@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="spring-framework">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/spring-framework" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/spring-framework" recursive="false" />
+  </library>
+</component>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="resources"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="ge/json/editor/application/resources/resources.properties"/>
+    </bean>
+
+    <bean id="JsonEditor.Application" class="ge.json.editor.application.JsonEditorApplication" lazy-init="true">
+        <property name="allowMultipleApplications" value="false"/>
+        <property name="frameDefinition" ref="JsonEditor.Application.JsonEditor"/>
+    </bean>
+
+    <bean id="JsonEditor.Application.JsonEditor" class="ge.framework.application.core.frame.objects.FrameDefinition"
+          lazy-init="true">
+        <property name="name" value="${JsonEditor.Application.JsonEditor.name}"/>
+        <property name="smallImage" value="/${JsonEditor.Application.JsonEditor.smallIcon}"/>
+        <property name="smallIcon" value="/${JsonEditor.Application.JsonEditor.smallIcon}"/>
+        <property name="largeImage" value="/${JsonEditor.Application.JsonEditor.largeIcon}"/>
+        <property name="largeIcon" value="/${JsonEditor.Application.JsonEditor.largeIcon}"/>
+        <property name="macIcon" value="/${JsonEditor.Application.JsonEditor.macIcon}"/>
+        <property name="macImage" value="/${JsonEditor.Application.JsonEditor.macIcon}"/>
+        <property name="metaDataName" value=".jsonEditor"/>
+    </bean>
+</beans>

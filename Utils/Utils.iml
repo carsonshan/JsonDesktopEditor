@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/resources" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="apache-log4j" level="project" />
+    <orderEntry type="library" exported="" name="commons-logging" level="project" />
+    <orderEntry type="library" exported="" name="commons-io" level="project" />
+    <orderEntry type="library" exported="" name="JDOM" level="project" />
+    <orderEntry type="library" exported="" name="JIDE" level="project" />
+    <orderEntry type="library" exported="" name="spring-framework" level="project" />
+    <orderEntry type="library" exported="" name="Tools" level="project" />
+  </component>
+</module>
+
