@@ -13,9 +13,11 @@
         <property name="frameDefinition" ref="JsonEditor.Application.JsonEditor"/>
     </bean>
 
-    <bean id="JsonEditor.Application.JsonEditor" class="ge.framework.application.core.frame.objects.FrameDefinition"
+    <bean id="JsonEditor.Application.JsonEditor" class="ge.framework.frame.single.objects.SingleFrameDefinition"
           lazy-init="true">
         <property name="name" value="${JsonEditor.Application.JsonEditor.name}"/>
+        <property name="frameClass" value="ge.json.editor.frame.JsonEditorApplicationFrame"/>
+        <property name="configurationClass" value="ge.json.editor.frame.objects.JsonEditorFrameConfiguration"/>
         <property name="smallImage" value="/${JsonEditor.Application.JsonEditor.smallIcon}"/>
         <property name="smallIcon" value="/${JsonEditor.Application.JsonEditor.smallIcon}"/>
         <property name="largeImage" value="/${JsonEditor.Application.JsonEditor.largeIcon}"/>

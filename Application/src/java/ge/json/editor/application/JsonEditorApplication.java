@@ -1,7 +1,9 @@
 package ge.json.editor.application;
 
 
-import ge.framework.application.core.application.Application;
+import ge.framework.application.single.SingleFrameApplication;
+
+import static org.springframework.util.Assert.notNull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,16 +11,10 @@ import ge.framework.application.core.application.Application;
  * Date: 10/07/13
  * Time: 11:05
  */
-public class JsonEditorApplication extends Application
+public class JsonEditorApplication extends SingleFrameApplication
 {
     @Override
     protected void initialiseApplication( String[] args )
-    {
-
-    }
-
-    @Override
-    protected void startupApplication( Application application )
     {
 
     }

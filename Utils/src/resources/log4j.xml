@@ -21,7 +21,7 @@
         </layout>
     </appender>
     <root>
-        <level value="DEBUG"/>
+        <level value="ALL"/>
         <appender-ref ref="Console"/>
         <appender-ref ref="Modeller"/>
         <appender-ref ref="File"/>
