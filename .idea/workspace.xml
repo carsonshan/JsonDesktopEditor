@@ -18,7 +18,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -55,6 +54,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -67,7 +67,7 @@
       <file leaf-file-name="ApplicationFrame.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/ApplicationFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="5" selection-start="2721" selection-end="2721" vertical-scroll-proportion="-4.699883" vertical-offset="5097" max-vertical-offset="5950">
+            <state line="79" column="66" selection-start="3005" selection-end="3005" vertical-scroll-proportion="-0.1992966" vertical-offset="1428" max-vertical-offset="5950">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#closed#0;class#ApplicationFrame#0" expanded="false" />
@@ -105,11 +105,8 @@
       <file leaf-file-name="ViewMenu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/menu/ViewMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="19" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="2091">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1394#1423#0" expanded="true" />
-              </folding>
+            <state line="48" column="19" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="2176">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,7 +114,7 @@
       <file leaf-file-name="JsonEditorApplication.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/src/java/ge/json/editor/application/JsonEditorApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="48" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+            <state line="11" column="48" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="527">
               <folding />
             </state>
           </provider>
@@ -184,6 +181,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -364,8 +363,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -381,8 +378,8 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
   </component>
@@ -528,16 +525,14 @@
     </option>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1696" height="1036" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19795223" sideWeight="0.7869644" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.6258298" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21303561" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21303561" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -546,6 +541,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.6258298" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19795223" sideWeight="0.7869644" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -612,39 +609,43 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/menu/view/AdditionalViewMenu.java">
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/menu/ViewMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+        <state line="48" column="19" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="2176">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/java/ge/json/editor/application/JsonEditorApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="48" selection-start="239" selection-end="239" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/menu/view/AdditionalViewMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/menu/view/AdditionalViewMenuSeparator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="19" selection-start="165" selection-end="165" vertical-scroll-proportion="0.07511046" vertical-offset="0" max-vertical-offset="679">
-          <folding />
-        </state>
+        <state line="8" column="19" selection-start="165" selection-end="165" vertical-scroll-proportion="0.07511046" vertical-offset="0" max-vertical-offset="679" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/menu/view/AdditionalViewMenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="22" selection-start="262" selection-end="262" vertical-scroll-proportion="0.15022092" vertical-offset="0" max-vertical-offset="679">
-          <folding />
-        </state>
+        <state line="11" column="22" selection-start="262" selection-end="262" vertical-scroll-proportion="0.15022092" vertical-offset="0" max-vertical-offset="679" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/menu/view/AdditionalViewMenuComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="17" selection-start="163" selection-end="163" vertical-scroll-proportion="0.07511046" vertical-offset="0" max-vertical-offset="679">
-          <folding />
-        </state>
+        <state line="8" column="17" selection-start="163" selection-end="163" vertical-scroll-proportion="0.07511046" vertical-offset="0" max-vertical-offset="679" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Utils/src/java/ge/utils/spring/ApplicationContextAwareObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="66" selection-start="794" selection-end="794" vertical-scroll-proportion="0.124333926" vertical-offset="32" max-vertical-offset="952">
-          <folding />
-        </state>
+        <state line="23" column="66" selection-start="794" selection-end="794" vertical-scroll-proportion="0.124333926" vertical-offset="32" max-vertical-offset="952" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Utils/src/java/ge/utils/spring/BeanNameAwareObject.java">
@@ -657,10 +658,7 @@
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/menu/ViewMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="19" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="2091">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1394#1423#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -676,9 +674,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/src/resources/ge/json/editor/application/resources/resources.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="50" selection-start="677" selection-end="677" vertical-scroll-proportion="0.21922626" vertical-offset="0" max-vertical-offset="853">
-          <folding />
-        </state>
+        <state line="11" column="50" selection-start="677" selection-end="677" vertical-scroll-proportion="0.21922626" vertical-offset="0" max-vertical-offset="853" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/application/Application.java">
@@ -715,16 +711,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/ApplicationFramework.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="14" selection-start="950" selection-end="950" vertical-scroll-proportion="-1.628866" vertical-offset="1616" max-vertical-offset="2295">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="35" column="14" selection-start="950" selection-end="950" vertical-scroll-proportion="-1.628866" vertical-offset="1616" max-vertical-offset="2295" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/frame/ApplicationFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="5" selection-start="2721" selection-end="2721" vertical-scroll-proportion="-4.699883" vertical-offset="5097" max-vertical-offset="5950">
+        <state line="79" column="66" selection-start="3005" selection-end="3005" vertical-scroll-proportion="-0.1992966" vertical-offset="1428" max-vertical-offset="5950">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#closed#0;class#ApplicationFrame#0" expanded="false" />
