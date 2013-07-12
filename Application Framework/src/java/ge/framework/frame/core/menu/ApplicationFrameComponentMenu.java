@@ -30,11 +30,11 @@ public abstract class ApplicationFrameComponentMenu extends StatusBarEnabledSpac
 
         update();
 
-        otherApplicationFrameComponentMenuItem = createOtherMenuItem();
+        otherApplicationFrameComponentMenuItem = createOtherMenuItem( applicationFrame );
         otherApplicationFrameComponentMenuItem.setApplicationFrame( applicationFrame );
     }
 
-    protected abstract OtherApplicationFrameComponentMenuItem createOtherMenuItem();
+    protected abstract OtherApplicationFrameComponentMenuItem createOtherMenuItem( ApplicationFrame applicationFrame );
 
     public void add( ApplicationFrameComponent applicationFrameComponent )
     {

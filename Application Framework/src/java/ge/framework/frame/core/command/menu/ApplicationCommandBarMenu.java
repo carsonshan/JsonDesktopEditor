@@ -25,13 +25,13 @@ public class ApplicationCommandBarMenu extends StatusBarEnabledSpacerMenu implem
 
     private OtherApplicationCommandBarComponentMenuItem otherApplicationCommandBarComponentMenuItem;
 
-    public ApplicationCommandBarMenu()
+    public ApplicationCommandBarMenu( ApplicationFrame applicationFrame )
     {
         setText( resources.getResourceString( ApplicationCommandBarMenu.class, "title" ) );
         setPopupMenuCustomizer( this );
 
         otherApplicationCommandBarComponentMenuItem =
-                new OtherApplicationCommandBarComponentMenuItem();
+                new OtherApplicationCommandBarComponentMenuItem( applicationFrame );
     }
 
     public void addDockableBar( ApplicationCommandBarComponent dockableBar )

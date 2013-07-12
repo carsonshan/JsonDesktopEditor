@@ -9,9 +9,9 @@ import ge.framework.frame.core.command.menu.ApplicationCommandBarMenu;
 import ge.framework.frame.core.document.ApplicationDocumentComponent;
 import ge.framework.frame.core.document.menu.ApplicationDocumentComponentMenu;
 import ge.framework.frame.core.manager.ApplicationDockableBarManager;
-import ge.framework.frame.core.manager.ApplicationDockableFrame;
+import ge.framework.frame.core.dockable.ApplicationDockableFrame;
 import ge.framework.frame.core.manager.ApplicationDockingManager;
-import ge.framework.frame.core.manager.menu.ApplicationDockableFrameMenu;
+import ge.framework.frame.core.dockable.menu.ApplicationDockableFrameMenu;
 import ge.framework.frame.core.manager.menu.ToggleToolButtonsMenuItem;
 import ge.framework.frame.core.menu.FileMenu;
 import ge.framework.frame.core.menu.ViewMenu;
@@ -25,6 +25,7 @@ import ge.utils.bundle.Resources;
 import ge.utils.controls.breadcrumb.BreadcrumbBar;
 import ge.utils.file.LockFile;
 import ge.utils.os.OS;
+import ge.utils.text.StringArgumentMessageFormat;
 import ge.utils.xml.bind.MarshallerListener;
 import ge.utils.xml.bind.TypedMarshallerListener;
 import ge.utils.xml.bind.TypedUnmarshallerListener;
@@ -59,11 +60,9 @@ import java.util.Map;
  * Date: 29/01/13
  * Time: 11:24
  */
+@SuppressWarnings( "unused" )
 public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITION extends FrameDefinition, CONFIG extends FrameConfiguration> extends JFrame
 {
-    private static final Resources resources =
-            Resources.getInstance( "ge.framework.frame.resources" );
-
     private static Logger logger = Logger.getLogger( ApplicationFrame.class );
 
     private APPLICATION application;
@@ -92,9 +91,9 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
 
     private LockFile lockFile;
 
-    private TypedMarshallerListener marshallerListener;
+    private TypedMarshallerListener marshallerListener = new TypedMarshallerListener();
 
-    private TypedUnmarshallerListener unmarshallerListener;
+    private TypedUnmarshallerListener unmarshallerListener = new TypedUnmarshallerListener();
 
     public ApplicationFrame( APPLICATION application ) throws HeadlessException
     {
@@ -309,7 +308,7 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
         {
             lockFile.release();
         }
-        catch ( IOException e )
+        catch ( IOException ignored )
         {
         }
     }
@@ -448,32 +447,6 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
     public void removeStatusBarItem( StatusBarItem statusBarItem )
     {
         statusBar.remove( statusBarItem );
-    }
-
-    @Override
-    public void setTitle( String title )
-    {
-        String resourceString;
-        if ( title == null )
-        {
-            resourceString = resources.getResourceString( ApplicationFrame.class, "frame", "title" );
-        }
-        else
-        {
-            resourceString = resources.getResourceString( ApplicationFrame.class, "frame", "exTitle" );
-        }
-
-        //TODO: Replace Application
-//        Application application = ApplicationManager.getApplication();
-
-        Map<String, Object> arguments = new HashMap<String, Object>();
-//        arguments.put( "applicationName", application.getName() );
-        arguments.put( "frameName", frameDefinition.getName() );
-        arguments.put( "title", title );
-
-//        resourceString = StringArgumentMessageFormat.format( resourceString, arguments );
-
-        super.setTitle( "resourceString" );
     }
 
     public FileMenu getFileMenu()

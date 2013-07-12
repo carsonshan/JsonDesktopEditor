@@ -1,6 +1,7 @@
 package ge.json.editor.frame;
 
 import com.jidesoft.action.DockableBarContext;
+import ge.framework.frame.core.dockable.ApplicationDockableFrame;
 import ge.framework.frame.core.menu.FileMenu;
 import ge.framework.frame.single.SingleApplicationFrame;
 import ge.framework.frame.core.command.ApplicationCommandMenuBar;
@@ -9,6 +10,7 @@ import ge.json.editor.application.JsonEditorApplication;
 import ge.json.editor.frame.objects.JsonEditorFrameConfiguration;
 import ge.utils.bundle.Resources;
 import ge.utils.controls.breadcrumb.BreadcrumbBar;
+import org.jdom2.Element;
 
 import java.awt.HeadlessException;
 
@@ -23,6 +25,8 @@ public class JsonEditorApplicationFrame extends SingleApplicationFrame<JsonEdito
     private static final Resources resources = Resources.getInstance( "ge.json.editor.application.resources" );
 
     private ApplicationCommandMenuBar commandMenuBar;
+
+    private static int index = 1;
 
     public JsonEditorApplicationFrame( JsonEditorApplication application )
             throws HeadlessException
@@ -58,6 +62,40 @@ public class JsonEditorApplicationFrame extends SingleApplicationFrame<JsonEdito
     protected void initialiseSingleApplicationFrame()
     {
         initialiseCommandMenuBar();
+
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+        addFrame( createFrame() );
+    }
+
+    private ApplicationDockableFrame createFrame()
+    {
+        return new JApplicationDockableFrame(""+index++);
     }
 
     private void initialiseCommandMenuBar()
@@ -82,5 +120,29 @@ public class JsonEditorApplicationFrame extends SingleApplicationFrame<JsonEdito
         commandMenuBar.add( viewMenu );
 
         addDockableBar( commandMenuBar );
+    }
+
+    private class JApplicationDockableFrame extends ApplicationDockableFrame
+    {
+        private JApplicationDockableFrame( String key )
+        {
+            super( key );
+
+            setTitle( key );
+            setSideTitle( getTitle() );
+            setTabTitle( getTitle() );
+        }
+
+        @Override
+        public Element saveLayoutData()
+        {
+            return null;
+        }
+
+        @Override
+        public void loadLayoutData( Element element )
+        {
+
+        }
     }
 }

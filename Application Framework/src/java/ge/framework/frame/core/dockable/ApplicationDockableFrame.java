@@ -1,11 +1,12 @@
-package ge.framework.frame.core.manager;
+package ge.framework.frame.core.dockable;
 
 import com.jidesoft.docking.DockableFrame;
 import com.jidesoft.docking.event.DockableFrameAdapter;
 import com.jidesoft.docking.event.DockableFrameEvent;
 import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.ApplicationFrameComponent;
-import ge.framework.frame.core.manager.menu.ApplicationDockableFrameMenuItem;
+import ge.framework.frame.core.manager.ApplicationDockingManager;
+import ge.framework.frame.core.dockable.menu.ApplicationDockableFrameMenuItem;
 import ge.framework.frame.core.menu.item.ApplicationFrameComponentMenuItem;
 import org.jdom2.Element;
 

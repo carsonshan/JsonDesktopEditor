@@ -9,6 +9,7 @@
     </bean>
 
     <bean id="JsonEditor.Application" class="ge.json.editor.application.JsonEditorApplication" lazy-init="true">
+        <property name="name" value="${JsonEditor.Application.name}"/>
         <property name="allowMultipleApplications" value="false"/>
         <property name="frameDefinition" ref="JsonEditor.Application.JsonEditor"/>
     </bean>

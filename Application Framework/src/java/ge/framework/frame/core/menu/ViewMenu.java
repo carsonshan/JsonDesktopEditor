@@ -3,7 +3,7 @@ package ge.framework.frame.core.menu;
 import com.jidesoft.swing.JideMenu;
 import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.command.menu.ApplicationCommandBarMenu;
-import ge.framework.frame.core.manager.menu.ApplicationDockableFrameMenu;
+import ge.framework.frame.core.dockable.menu.ApplicationDockableFrameMenu;
 import ge.framework.frame.core.manager.menu.ToggleToolButtonsMenuItem;
 import ge.framework.frame.core.menu.view.AdditionalViewMenu;
 import ge.framework.frame.core.menu.view.AdditionalViewMenuComponent;

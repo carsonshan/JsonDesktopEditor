@@ -5,8 +5,10 @@ import com.jidesoft.dialog.StandardDialog;
 import com.jidesoft.swing.PartialEtchedBorder;
 import com.jidesoft.swing.PartialLineBorder;
 import com.jidesoft.swing.PartialSide;
+import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.command.ApplicationCommandBarComponent;
 import ge.framework.frame.core.command.dialog.panel.CommandBarPanel;
+import ge.framework.frame.core.objects.FrameDefinition;
 import ge.utils.bundle.Resources;
 
 import javax.swing.BorderFactory;
@@ -48,10 +50,9 @@ public class CommandBarDialog extends StandardDialog implements ActionListener
 
     private List<ApplicationCommandBarComponent> selectedValues;
 
-    public CommandBarDialog( List<ApplicationCommandBarComponent> applicationCommandBarComponents )
+    public CommandBarDialog( ApplicationFrame frame, List<ApplicationCommandBarComponent> applicationCommandBarComponents )
     {
-        // TODO: Replace application
-//        super( ApplicationManager.discoverFocusedFrame() );
+        super( frame );
 
         this.applicationCommandBarComponents = applicationCommandBarComponents;
 
@@ -67,11 +68,10 @@ public class CommandBarDialog extends StandardDialog implements ActionListener
         setSize( 450, 500 );
         setMinimumSize( new Dimension( 450, 500 ) );
 
-        // TODO: Replace application
-//        Application application = ApplicationManager.getApplication();
+        ApplicationFrame frame = ( ApplicationFrame ) getParent();
+        FrameDefinition frameDefinition = frame.getFrameDefinition();
 
-        // TODO: Replace application
-//        setIconImage( application.getSmallImage() );
+        setIconImage( frameDefinition.getSmallImage() );
         setTitle( resources.getResourceString( CommandBarDialog.class, "title" ) );
     }
 

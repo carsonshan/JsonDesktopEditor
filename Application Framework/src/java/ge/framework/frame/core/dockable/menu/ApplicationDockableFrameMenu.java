@@ -1,4 +1,4 @@
-package ge.framework.frame.core.manager.menu;
+package ge.framework.frame.core.dockable.menu;
 
 import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.menu.ApplicationFrameComponentMenu;
@@ -25,8 +25,8 @@ public class ApplicationDockableFrameMenu extends ApplicationFrameComponentMenu
     }
 
     @Override
-    protected OtherApplicationFrameComponentMenuItem createOtherMenuItem()
+    protected OtherApplicationFrameComponentMenuItem createOtherMenuItem( ApplicationFrame applicationFrame )
     {
-        return new OtherFrameWindowMenuItem();
+        return new OtherFrameWindowMenuItem( applicationFrame );
     }
 }

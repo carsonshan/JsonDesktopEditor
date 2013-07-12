@@ -31,7 +31,7 @@ public class ApplicationDockableBarManager extends DefaultDockableBarManager
 
     private void initialise( ApplicationFrame applicationFrame )
     {
-        applicationCommandBarMenu = new ApplicationCommandBarMenu();
+        applicationCommandBarMenu = new ApplicationCommandBarMenu( applicationFrame );
     }
 
     public void addDockableBar( ApplicationCommandBarComponent dockableBar )

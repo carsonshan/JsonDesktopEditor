@@ -1,6 +1,7 @@
 package ge.framework.frame.core.command.menu;
 
 import com.jidesoft.action.DockableBarManager;
+import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.command.ApplicationCommandBarComponent;
 import ge.framework.frame.core.command.dialog.CommandBarDialog;
 import ge.framework.frame.core.status.menu.item.StatusBarEnabledSpacerMenuItem;
@@ -24,9 +25,12 @@ public class OtherApplicationCommandBarComponentMenuItem extends StatusBarEnable
 
     private List<ApplicationCommandBarComponent> applicationCommandBarComponents;
 
-    public OtherApplicationCommandBarComponentMenuItem()
+    private ApplicationFrame applicationFrame;
+
+    public OtherApplicationCommandBarComponentMenuItem( ApplicationFrame applicationFrame )
     {
         super();
+        this.applicationFrame = applicationFrame;
 
         setText( resources.getResourceString( OtherApplicationCommandBarComponentMenuItem.class, "label" ) );
 
@@ -58,7 +62,8 @@ public class OtherApplicationCommandBarComponentMenuItem extends StatusBarEnable
     @Override
     public void actionPerformed( ActionEvent e )
     {
-        CommandBarDialog commandBarDialog = new CommandBarDialog( applicationCommandBarComponents );
+        CommandBarDialog commandBarDialog = new CommandBarDialog( applicationFrame,
+                                                                  applicationCommandBarComponents );
 
         if ( commandBarDialog.doModal() == true )
         {

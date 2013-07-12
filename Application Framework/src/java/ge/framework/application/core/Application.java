@@ -21,6 +21,8 @@ public abstract class Application extends ApplicationContextAwareObject
 
     private boolean resetting;
 
+    private String name;
+
     public final boolean isAllowMultipleApplications()
     {
         return allowMultipleApplications;
@@ -95,4 +97,14 @@ public abstract class Application extends ApplicationContextAwareObject
     protected abstract boolean isExitProcessRequired();
 
     public abstract CloseOrExitEnum closeOrExit();
+
+    public void setName( String name )
+    {
+        this.name = name;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
 }

@@ -1,9 +1,10 @@
-package ge.framework.frame.core.manager.menu;
+package ge.framework.frame.core.dockable.menu;
 
 import com.jidesoft.docking.DockingManager;
+import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.ApplicationFrameComponent;
-import ge.framework.frame.core.manager.ApplicationDockableFrame;
-import ge.framework.frame.core.manager.dialog.FramesDialog;
+import ge.framework.frame.core.dockable.ApplicationDockableFrame;
+import ge.framework.frame.core.dockable.dialog.FramesDialog;
 import ge.framework.frame.core.menu.item.OtherApplicationFrameComponentMenuItem;
 
 import java.awt.event.ActionEvent;
@@ -17,9 +18,12 @@ import java.util.List;
  */
 public class OtherFrameWindowMenuItem extends OtherApplicationFrameComponentMenuItem
 {
-    public OtherFrameWindowMenuItem()
+    private ApplicationFrame applicationFrame;
+
+    public OtherFrameWindowMenuItem( ApplicationFrame applicationFrame )
     {
         super();
+        this.applicationFrame = applicationFrame;
     }
 
     @Override
@@ -29,7 +33,7 @@ public class OtherFrameWindowMenuItem extends OtherApplicationFrameComponentMenu
                 getApplicationFrameComponents();
 
         FramesDialog framesDialog =
-                new FramesDialog( applicationFrameComponents );
+                new FramesDialog(applicationFrame, applicationFrameComponents );
 
         if ( framesDialog.doModal() == true )
         {

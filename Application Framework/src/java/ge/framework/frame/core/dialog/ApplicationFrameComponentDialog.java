@@ -5,8 +5,10 @@ import com.jidesoft.dialog.StandardDialog;
 import com.jidesoft.swing.PartialEtchedBorder;
 import com.jidesoft.swing.PartialLineBorder;
 import com.jidesoft.swing.PartialSide;
+import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.ApplicationFrameComponent;
 import ge.framework.frame.core.dialog.panel.ApplicationFrameComponentPanel;
+import ge.framework.frame.core.objects.FrameDefinition;
 import ge.utils.bundle.Resources;
 
 import javax.swing.BorderFactory;
@@ -32,9 +34,6 @@ public abstract class ApplicationFrameComponentDialog extends StandardDialog imp
     private static Resources resources = Resources.getInstance(
             "ge.framework.frame.resources" );
 
-    // TODO: Replace application
-//    private final Application application;
-
     private List<ApplicationFrameComponent> applicationDocumentComponents;
 
     private JPanel contentPanel;
@@ -51,12 +50,10 @@ public abstract class ApplicationFrameComponentDialog extends StandardDialog imp
 
     private ApplicationFrameComponentPanel applicationFrameComponentPanel;
 
-    public ApplicationFrameComponentDialog( List<ApplicationFrameComponent> applicationFrameComponents )
+    public ApplicationFrameComponentDialog( ApplicationFrame applicationFrame, List<ApplicationFrameComponent> applicationFrameComponents )
     {
-        // TODO: Replace application
-//        super( ApplicationManager.discoverFocusedFrame() );
+        super( applicationFrame );
 
-//        application = ApplicationManager.getApplication();
         this.applicationDocumentComponents = applicationFrameComponents;
 
         initializeDialog();
@@ -71,8 +68,10 @@ public abstract class ApplicationFrameComponentDialog extends StandardDialog imp
         setSize( 450, 500 );
         setMinimumSize( new Dimension( 450, 500 ) );
 
-        // TODO: Replace application
-//        setIconImage( application.getSmallImage() );
+        ApplicationFrame applicationFrame = ( ApplicationFrame ) getParent();
+        FrameDefinition frameDefinition = applicationFrame.getFrameDefinition();
+
+        setIconImage( frameDefinition.getSmallImage() );
     }
 
     @Override

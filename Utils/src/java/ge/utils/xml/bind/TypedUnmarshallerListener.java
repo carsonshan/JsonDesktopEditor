@@ -16,7 +16,7 @@ public class TypedUnmarshallerListener extends Unmarshaller.Listener
 {
     private Map<Class, UnmarshallerListener> listeners = new HashMap<Class, UnmarshallerListener>();
 
-    public <TYPE extends Object> void setListener( Class<TYPE> aClass, UnmarshallerListener<TYPE> listener )
+    public <TYPE> void setListener( Class<TYPE> aClass, UnmarshallerListener<TYPE> listener )
     {
         if ( aClass != null )
         {
@@ -31,7 +31,7 @@ public class TypedUnmarshallerListener extends Unmarshaller.Listener
         }
     }
 
-    public <TYPE extends Object> UnmarshallerListener<TYPE> getListener( Class<TYPE> aClass )
+    public <TYPE> UnmarshallerListener<TYPE> getListener( Class<TYPE> aClass )
     {
         return listeners.get( aClass );
     }

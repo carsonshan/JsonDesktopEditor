@@ -1,5 +1,6 @@
 package ge.framework.frame.core.document.dialog;
 
+import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.ApplicationFrameComponent;
 import ge.framework.frame.core.dialog.ApplicationFrameComponentDialog;
 import ge.framework.frame.core.dialog.panel.ApplicationFrameComponentPanel;
@@ -19,9 +20,10 @@ public class DocumentsDialog extends ApplicationFrameComponentDialog
     private static Resources resources = Resources.getInstance(
             "ge.framework.frame.resources" );
 
-    public DocumentsDialog( List<ApplicationFrameComponent> applicationFrameComponents )
+    public DocumentsDialog( ApplicationFrame applicationFrame,
+                            List<ApplicationFrameComponent> applicationFrameComponents )
     {
-        super( applicationFrameComponents );
+        super(applicationFrame, applicationFrameComponents );
 
         setTitle( resources.getResourceString( DocumentsDialog.class, "title" ) );
     }

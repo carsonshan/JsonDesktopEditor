@@ -6,10 +6,14 @@ import ge.framework.frame.core.menu.FileMenu;
 import ge.framework.frame.core.menu.SingleFrameFileMenu;
 import ge.framework.frame.single.objects.SingleFrameConfiguration;
 import ge.framework.frame.single.objects.SingleFrameDefinition;
+import ge.utils.bundle.Resources;
+import ge.utils.text.StringArgumentMessageFormat;
 import org.apache.log4j.Logger;
 
 import java.awt.HeadlessException;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,6 +23,9 @@ import java.io.File;
  */
 public abstract class SingleApplicationFrame<APPLICATION extends SingleFrameApplication, CONFIG extends SingleFrameConfiguration> extends ApplicationFrame<SingleFrameApplication,SingleFrameDefinition,SingleFrameConfiguration>
 {
+    private static final Resources resources =
+            Resources.getInstance( "ge.framework.frame.resources" );
+
     private static Logger logger = Logger.getLogger( SingleApplicationFrame.class );
 
     private static File userHome = new File(System.getProperty( "user.home" ));
@@ -79,5 +86,27 @@ public abstract class SingleApplicationFrame<APPLICATION extends SingleFrameAppl
     public boolean isAskBeforeExit()
     {
         return frameConfiguration.isAskBeforeExit();
+    }
+
+    @Override
+    public void setTitle( String title )
+    {
+        String resourceString;
+        if ( title == null )
+        {
+            resourceString = resources.getResourceString( SingleApplicationFrame.class, "frame", "title" );
+        }
+        else
+        {
+            resourceString = resources.getResourceString( SingleApplicationFrame.class, "frame", "exTitle" );
+        }
+
+        Map<String, Object> arguments = new HashMap<String, Object>();
+        arguments.put( "frameName", frameDefinition.getName() );
+        arguments.put( "title", title );
+
+        resourceString = StringArgumentMessageFormat.format( resourceString, arguments );
+
+        super.setTitle( resourceString );
     }
 }

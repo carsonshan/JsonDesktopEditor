@@ -1,4 +1,4 @@
-package ge.framework.frame.core.manager.dialog.panel;
+package ge.framework.frame.core.dockable.dialog.panel;
 
 import ge.framework.frame.core.dialog.panel.ApplicationFrameComponentPanel;
 import ge.utils.bundle.Resources;

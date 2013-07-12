@@ -1,5 +1,6 @@
 package ge.framework.frame.core.document.menu;
 
+import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.ApplicationFrameComponent;
 import ge.framework.frame.core.document.ApplicationDocumentComponent;
 import ge.framework.frame.core.document.dialog.DocumentsDialog;
@@ -18,9 +19,12 @@ import java.util.List;
 public class OtherApplicationDocumentComponentMenuItem extends OtherApplicationFrameComponentMenuItem implements
                                                                                                       ActionListener
 {
-    public OtherApplicationDocumentComponentMenuItem()
+    private ApplicationFrame applicationFrame;
+
+    public OtherApplicationDocumentComponentMenuItem( ApplicationFrame applicationFrame )
     {
         super();
+        this.applicationFrame = applicationFrame;
     }
 
     @Override
@@ -29,7 +33,7 @@ public class OtherApplicationDocumentComponentMenuItem extends OtherApplicationF
         List<ApplicationFrameComponent> applicationFrameComponents =
                 getApplicationFrameComponents();
 
-        DocumentsDialog documentsDialog = new DocumentsDialog( applicationFrameComponents );
+        DocumentsDialog documentsDialog = new DocumentsDialog( applicationFrame, applicationFrameComponents );
 
         if ( documentsDialog.doModal() == true )
         {

@@ -1,6 +1,6 @@
-package ge.framework.frame.core.manager.menu;
+package ge.framework.frame.core.dockable.menu;
 
-import ge.framework.frame.core.manager.ApplicationDockableFrame;
+import ge.framework.frame.core.dockable.ApplicationDockableFrame;
 import ge.framework.frame.core.menu.item.ApplicationFrameComponentMenuItem;
 import ge.utils.bundle.Resources;
 import ge.utils.text.StringArgumentMessageFormat;

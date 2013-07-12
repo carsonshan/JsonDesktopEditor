@@ -25,8 +25,8 @@ public class ApplicationDocumentComponentMenu extends ApplicationFrameComponentM
     }
 
     @Override
-    protected OtherApplicationFrameComponentMenuItem createOtherMenuItem()
+    protected OtherApplicationFrameComponentMenuItem createOtherMenuItem( ApplicationFrame applicationFrame )
     {
-        return new OtherApplicationDocumentComponentMenuItem();
+        return new OtherApplicationDocumentComponentMenuItem( applicationFrame );
     }
 }

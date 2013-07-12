@@ -13,9 +13,11 @@ import static org.springframework.util.Assert.notNull;
  */
 public class JsonEditorApplication extends SingleFrameApplication
 {
+
     @Override
     protected void initialiseApplication( String[] args )
     {
 
     }
+
 }

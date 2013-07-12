@@ -1,7 +1,7 @@
 package ge.framework.frame.core.persistence.callback;
 
 import com.jidesoft.utils.PersistenceUtilsCallback;
-import ge.framework.frame.core.manager.ApplicationDockableFrame;
+import ge.framework.frame.core.dockable.ApplicationDockableFrame;
 import ge.utils.xml.w3c.XmlHelper;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
