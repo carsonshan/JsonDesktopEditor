@@ -21,7 +21,7 @@ import java.util.Map;
  * Date: 11/07/13
  * Time: 08:43
  */
-public abstract class SingleApplicationFrame<APPLICATION extends SingleFrameApplication, CONFIG extends SingleFrameConfiguration> extends ApplicationFrame<SingleFrameApplication,SingleFrameDefinition,SingleFrameConfiguration>
+public abstract class SingleApplicationFrame<APPLICATION extends SingleFrameApplication, CONFIG extends SingleFrameConfiguration> extends ApplicationFrame<APPLICATION,SingleFrameDefinition,CONFIG>
 {
     private static final Resources resources =
             Resources.getInstance( "ge.framework.frame.resources" );
@@ -30,8 +30,7 @@ public abstract class SingleApplicationFrame<APPLICATION extends SingleFrameAppl
 
     private static File userHome = new File(System.getProperty( "user.home" ));
 
-    public SingleApplicationFrame( SingleFrameApplication
-                                              application ) throws HeadlessException
+    public SingleApplicationFrame( APPLICATION application ) throws HeadlessException
     {
         super( application );
     }

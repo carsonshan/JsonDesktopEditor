@@ -125,6 +125,11 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
         }
     }
 
+    public CONFIG getFrameConfiguration()
+    {
+        return frameConfiguration;
+    }
+
     protected boolean loadFrameConfiguration( String name )
     {
         File configFile = getConfigurationFile( name );
