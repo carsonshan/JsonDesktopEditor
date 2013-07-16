@@ -3,7 +3,6 @@ package ge.framework.application.multi.objects;
 import ge.framework.application.multi.objects.enums.OpenLocationEnum;
 import ge.framework.application.multi.objects.events.ApplicationConfigurationChangeListener;
 import ge.framework.application.multi.objects.events.ApplicationConfigurationChangedEvent;
-import ge.framework.frame.core.objects.FrameDefinition;
 import ge.framework.frame.multi.objects.FrameInstanceDetailsObject;
 import ge.framework.frame.multi.objects.MultiFrameDefinition;
 import ge.utils.properties.object.PropertyDialogObject;

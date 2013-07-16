@@ -1,6 +1,5 @@
 package ge.framework.application.multi.dialog;
 
-import ge.framework.application.core.Application;
 import ge.framework.application.multi.MultiFrameApplication;
 import ge.framework.application.multi.dialog.properties.AbstractApplicationPropertiesPage;
 import ge.framework.application.multi.dialog.properties.GeneralApplicationPropertiesPage;

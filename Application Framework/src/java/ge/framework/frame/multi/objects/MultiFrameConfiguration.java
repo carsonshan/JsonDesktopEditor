@@ -10,4 +10,12 @@ import ge.framework.frame.core.objects.FrameConfiguration;
  */
 public class MultiFrameConfiguration extends FrameConfiguration
 {
+    public MultiFrameConfiguration()
+    {
+    }
+
+    public MultiFrameConfiguration( String name )
+    {
+        super( name );
+    }
 }

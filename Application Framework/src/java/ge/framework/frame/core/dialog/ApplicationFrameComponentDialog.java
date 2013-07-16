@@ -50,7 +50,8 @@ public abstract class ApplicationFrameComponentDialog extends StandardDialog imp
 
     private ApplicationFrameComponentPanel applicationFrameComponentPanel;
 
-    public ApplicationFrameComponentDialog( ApplicationFrame applicationFrame, List<ApplicationFrameComponent> applicationFrameComponents )
+    public ApplicationFrameComponentDialog( ApplicationFrame applicationFrame,
+                                            List<ApplicationFrameComponent> applicationFrameComponents )
     {
         super( applicationFrame );
 

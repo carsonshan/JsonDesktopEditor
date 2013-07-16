@@ -1,7 +1,6 @@
 package ge.framework.application.multi.dialog.panel;
 
 import com.jidesoft.dialog.BannerPanel;
-import ge.framework.application.core.Application;
 import ge.framework.application.multi.MultiFrameApplication;
 
 import javax.swing.ImageIcon;

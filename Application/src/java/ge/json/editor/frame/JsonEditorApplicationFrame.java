@@ -1,6 +1,7 @@
 package ge.json.editor.frame;
 
 import com.jidesoft.action.DockableBarContext;
+import ge.framework.frame.core.dialog.properties.AbstractFramePropertiesPage;
 import ge.framework.frame.core.dockable.ApplicationDockableFrame;
 import ge.framework.frame.core.menu.FileMenu;
 import ge.framework.frame.single.SingleApplicationFrame;
@@ -13,6 +14,7 @@ import ge.utils.controls.breadcrumb.BreadcrumbBar;
 import org.jdom2.Element;
 
 import java.awt.HeadlessException;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -56,6 +58,18 @@ public class JsonEditorApplicationFrame extends SingleApplicationFrame<JsonEdito
     protected void loadFrameData()
     {
 
+    }
+
+    @Override
+    protected List<AbstractFramePropertiesPage> getOtherFrameConfigurationPages()
+    {
+        return null;
+    }
+
+    @Override
+    protected boolean isFrameConfigurationDialogAllow()
+    {
+        return true;
     }
 
     @Override

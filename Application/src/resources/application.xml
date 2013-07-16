@@ -8,6 +8,41 @@
         <property name="location" value="ge/json/editor/application/resources/resources.properties"/>
     </bean>
 
+    <bean id="Test.Multi.Application" class="ge.test.multi.application.TestMultiApplication" lazy-init="true">
+        <property name="frameDefinitions">
+            <list value-type="ge.framework.frame.multi.objects.MultiFrameDefinition">
+                <ref bean="Test.Multi.Application.Definition"/>
+            </list>
+        </property>
+        <property name="applicationConfigurationClass" value="ge.test.multi.application.TestMultiApplicationConfig"/>
+        <property name="name" value="Test"/>
+        <property name="description" value=""/>
+        <property name="smallImage" value="/${JsonEditor.Application.JsonEditor.smallIcon}"/>
+        <property name="smallIcon" value="/${JsonEditor.Application.JsonEditor.smallIcon}"/>
+        <property name="largeImage" value="/${JsonEditor.Application.JsonEditor.largeIcon}"/>
+        <property name="largeIcon" value="/${JsonEditor.Application.JsonEditor.largeIcon}"/>
+        <property name="macIcon" value="/${JsonEditor.Application.JsonEditor.macIcon}"/>
+        <property name="macImage" value="/${JsonEditor.Application.JsonEditor.macIcon}"/>
+        <property name="applicationMetaDataName" value=".testMulti"/>
+        <property name="applicationConfigurationName" value="testMulti.af"/>
+        <property name="allowMultipleApplications" value="false"/>
+    </bean>
+
+    <bean id="Test.Multi.Application.Definition" class="ge.framework.frame.multi.objects.MultiFrameDefinition" lazy-init="true">
+        <property name="metaDataName" value=".testMulti"/>
+        <property name="name" value="Test Multi"/>
+        <property name="smallImage" value="/${JsonEditor.Application.JsonEditor.smallIcon}"/>
+        <property name="smallIcon" value="/${JsonEditor.Application.JsonEditor.smallIcon}"/>
+        <property name="largeImage" value="/${JsonEditor.Application.JsonEditor.largeIcon}"/>
+        <property name="largeIcon" value="/${JsonEditor.Application.JsonEditor.largeIcon}"/>
+        <property name="macIcon" value="/${JsonEditor.Application.JsonEditor.macIcon}"/>
+        <property name="macImage" value="/${JsonEditor.Application.JsonEditor.macIcon}"/>
+        <property name="frameClass" value="ge.test.multi.application.TestMultiFrame"/>
+        <property name="configurationClass"
+                  value="ge.test.multi.application.TestFrameConfiguration"/>
+        <property name="configurationName" value="TestMulti.mpf"/>
+    </bean>
+
     <bean id="JsonEditor.Application" class="ge.json.editor.application.JsonEditorApplication" lazy-init="true">
         <property name="name" value="${JsonEditor.Application.name}"/>
         <property name="allowMultipleApplications" value="false"/>

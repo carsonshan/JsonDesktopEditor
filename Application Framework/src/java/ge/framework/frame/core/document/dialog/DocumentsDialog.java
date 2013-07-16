@@ -23,7 +23,7 @@ public class DocumentsDialog extends ApplicationFrameComponentDialog
     public DocumentsDialog( ApplicationFrame applicationFrame,
                             List<ApplicationFrameComponent> applicationFrameComponents )
     {
-        super(applicationFrame, applicationFrameComponents );
+        super( applicationFrame, applicationFrameComponents );
 
         setTitle( resources.getResourceString( DocumentsDialog.class, "title" ) );
     }

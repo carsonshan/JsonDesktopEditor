@@ -5,7 +5,6 @@ import com.jidesoft.dialog.StandardDialog;
 import com.jidesoft.swing.PartialLineBorder;
 import com.jidesoft.swing.PartialSide;
 import com.jidesoft.swing.StyledLabel;
-import ge.framework.application.core.Application;
 import ge.framework.application.multi.MultiFrameApplication;
 import ge.framework.application.multi.dialog.buttons.ApplicationPropertiesButton;
 import ge.framework.application.multi.dialog.buttons.NewFrameButton;
@@ -47,7 +46,7 @@ public class InitialDialog extends StandardDialog implements ListSelectionListen
 
     private MultiFrameApplication application;
 
-    public InitialDialog(MultiFrameApplication application)
+    public InitialDialog( MultiFrameApplication application )
     {
         super();
         this.application = application;
@@ -73,7 +72,7 @@ public class InitialDialog extends StandardDialog implements ListSelectionListen
     {
         if ( bannerPanel == null )
         {
-            bannerPanel = new MultiFrameApplicationBannerPanel(application);
+            bannerPanel = new MultiFrameApplicationBannerPanel( application );
 
             bannerPanel.setBackground( getBackground() );
         }
@@ -145,7 +144,7 @@ public class InitialDialog extends StandardDialog implements ListSelectionListen
 
     private Component createRecentList()
     {
-        recentListPanel = new RecentPanel(application);
+        recentListPanel = new RecentPanel( application );
 
         recentListPanel.addListSelectionListener( this );
 

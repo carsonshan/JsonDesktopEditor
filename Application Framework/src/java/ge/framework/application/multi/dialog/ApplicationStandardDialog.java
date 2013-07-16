@@ -20,7 +20,7 @@ public abstract class ApplicationStandardDialog extends StandardDialog
 {
     protected MultiFrameApplication application;
 
-    protected ApplicationStandardDialog(MultiFrameApplication application) throws HeadlessException
+    protected ApplicationStandardDialog( MultiFrameApplication application ) throws HeadlessException
     {
         super( application.discoverFocusedFrame() );
         this.application = application;

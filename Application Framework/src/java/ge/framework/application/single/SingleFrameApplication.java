@@ -19,7 +19,8 @@ import static org.springframework.util.Assert.notNull;
  * Date: 11/07/13
  * Time: 07:47
  */
-public abstract class SingleFrameApplication<FRAME extends SingleApplicationFrame, DEFINITION extends SingleFrameDefinition> extends Application
+public abstract class SingleFrameApplication<FRAME extends SingleApplicationFrame, DEFINITION extends SingleFrameDefinition> extends
+                                                                                                                             Application
 {
     private static Logger logger = Logger.getLogger( SingleFrameApplication.class );
 
@@ -30,7 +31,7 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
     private DEFINITION frameDefinition;
 
     @Override
-    protected void startupApplication(  )
+    protected void startupApplication()
     {
         if ( applicationFrame == null )
         {
@@ -39,9 +40,9 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
                 Class<? extends FRAME> frameClass = frameDefinition.getFrameClass();
 
                 Constructor<? extends FRAME> constructor =
-                        frameClass.getConstructor(getClass());
+                        frameClass.getConstructor( getClass() );
 
-                applicationFrame = constructor.newInstance(this);
+                applicationFrame = constructor.newInstance( this );
 
                 applicationFrame.initialise( frameDefinition );
 
@@ -55,7 +56,7 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
         }
         else
         {
-            logger.error("Attempting to start an already started application");
+            logger.error( "Attempting to start an already started application" );
         }
     }
 
@@ -105,7 +106,7 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
     @Override
     protected ApplicationFrame getFocusedFrame()
     {
-        return null;
+        return applicationFrame;
     }
 
     @Override
@@ -124,7 +125,6 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
     @Override
     protected void updateApplication()
     {
-
     }
 
     @Override
@@ -136,6 +136,6 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
     @Override
     protected void setAskBeforeExit( boolean askBeforeExit )
     {
-        applicationFrame.setAskBeforeExit(askBeforeExit);
+        applicationFrame.setAskBeforeExit( askBeforeExit );
     }
 }

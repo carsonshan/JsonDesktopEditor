@@ -71,6 +71,81 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/core/menu/item/FramePropertiesMenuItem.java" line="34" class="ge.framework.frame.core.menu.item.FramePropertiesMenuItem" package="ge.framework.frame.core.menu.item">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/core/dialog/FramePropertiesDialog.java" line="48" class="ge.framework.frame.core.dialog.FramePropertiesDialog" package="ge.framework.frame.core.dialog">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/single/dialog/SingleFramePropertiesDialog.java" line="36" class="ge.framework.frame.single.dialog.SingleFramePropertiesDialog" package="ge.framework.frame.single.dialog">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/core/ApplicationFrame.java" line="508" class="ge.framework.frame.core.ApplicationFrame" package="ge.framework.frame.core">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/Application.java" line="51" class="ge.framework.application.core.Application" package="ge.framework.application.core">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
@@ -90,22 +165,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/buttons/NewFrameButton.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/buttons/OpenFrameButton.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/core/ApplicationFrame.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/utils/TypeFolderChooser.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/utils/TypeFileSystemView.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/ApplicationStandardDialog.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/OpenDialog.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/properties/GeneralApplicationPropertiesPage.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/properties/AbstractApplicationPropertiesPage.java" />
+        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/single/dialog/properties/GeneralSingleFramePropertiesPage.java" />
+        <option value="$PROJECT_DIR$/Application/src/java/ge/test/multi/application/TestMultiApplication.java" />
+        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/Main.java" />
+        <option value="$PROJECT_DIR$/Application/src/resources/application.xml" />
+        <option value="$PROJECT_DIR$/Application/src/java/ge/test/multi/application/TestMultiApplicationConfig.java" />
+        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/multi/command/FileCommandBar.java" />
+        <option value="$PROJECT_DIR$/Application Framework/src/resources/ge/framework/frame/resources/resources.properties" />
+        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/multi/objects/MultiFrameConfiguration.java" />
+        <option value="$PROJECT_DIR$/Application/src/java/ge/test/multi/application/TestFrameConfiguration.java" />
+        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/single/SingleFrameApplication.java" />
+        <option value="$PROJECT_DIR$/Application Framework/src/resources/ge/framework/application/resources/resources.properties" />
         <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/multi/MultiApplicationFrame.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/MissingLocationDialog.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/LockedLocationDialog.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/OpenLocationDialog.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/ApplicationPropertiesDialog.java" />
-        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/NewDialog.java" />
+        <option value="$PROJECT_DIR$/Application/src/java/ge/test/multi/application/TestMultiFrame.java" />
+        <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/core/ApplicationFrame.java" />
         <option value="$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/MultiFrameApplication.java" />
+        <option value="$PROJECT_DIR$/sys.log" />
       </list>
     </option>
   </component>
@@ -149,149 +224,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JsonDesktopEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JsonDesktopEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JsonDesktopEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JsonDesktopEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JsonDesktopEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="multi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JsonDesktopEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="multi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dialog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last_directory_selection" value="$PROJECT_DIR$/Application/src/java/ge" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="OverrideImplement.combined" value="true" />
@@ -305,25 +245,25 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ge.framework.application.multi.dialog" />
-      <recent name="ge.framework.frame.multi.objects" />
-      <recent name="ge.framework.application.multi.objects.enums" />
-      <recent name="ge.framework.application.multi.objects" />
-      <recent name="ge.framework.frame.multi" />
+      <recent name="ge.framework.frame.single.dialog" />
+      <recent name="ge.framework.frame.single.dialog.properties" />
+      <recent name="ge.framework.frame.multi.command" />
+      <recent name="ge.framework.frame.multi.menu.item" />
+      <recent name="ge.framework.frame.multi.dialog" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Git Repositories\JsonDesktopEditor\Application Framework\src\java\ge\framework\application\multi\dialog" />
-      <recent name="D:\Git Repositories\JsonDesktopEditor\Application Framework\src\java\ge\framework\application\multi\objects" />
       <recent name="D:\Git Repositories\JsonDesktopEditor\Application Framework\src\resources\ge\framework\frame\resources" />
       <recent name="D:\Git Repositories\JsonDesktopEditor\Application Framework\src\resources\ge\framework\application\resources" />
-      <recent name="D:\Git Repositories\JsonDesktopEditor\Application Framework\src\java\ge\framework\frame\objects" />
+      <recent name="D:\Git Repositories\JsonDesktopEditor\Application Framework\src\java\ge\framework\frame\multi\command" />
+      <recent name="D:\Git Repositories\JsonDesktopEditor\Application Framework\src\java\ge\framework\frame\multi\menu\item" />
+      <recent name="D:\Git Repositories\JsonDesktopEditor\Application Framework\src\java\ge\framework\application\multi\dialog" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ge.framework.frame.multi.objects" />
@@ -331,14 +271,16 @@
       <recent name="ge.framework.application" />
       <recent name="ge.framework.frame.menu" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Git Repositories\JsonDesktopEditor\Application\src\resources\ge\json\editor\application\resources" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ge.framework.frame.single.menu" />
       <recent name="ge.framework.application" />
       <recent name="ge.framework.application.core" />
       <recent name="ge.framework.frame.core" />
       <recent name="ge.framework" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Git Repositories\JsonDesktopEditor\Application Framework\src\resources\ge\framework\frame\resources" />
+      <recent name="D:\Git Repositories\JsonDesktopEditor\Application\src\resources\ge\json\editor\application\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -445,21 +387,24 @@
       <AnalysisUIOptions />
     </option>
   </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value="ALPHA_COMPARATOR" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1696" height="1036" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19681457" sideWeight="0.8105009" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19681457" sideWeight="0.7320459" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40386802" sideWeight="0.8105009" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1894991" sideWeight="0.5005688" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1894991" sideWeight="0.49943116" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39840183" sideWeight="0.7453229" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40386802" sideWeight="0.7320459" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07966204" sideWeight="0.23663254" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07966204" sideWeight="0.7633675" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39817974" sideWeight="0.7320459" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992035" sideWeight="0.7869644" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287827" sideWeight="0.8105009" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287827" sideWeight="0.920338" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -530,189 +475,162 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/MissingLocationDialog.java">
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/resources/ge/framework/application/resources/resources.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.025" vertical-offset="0" max-vertical-offset="1003">
+        <state line="7" column="30" selection-start="355" selection-end="355" vertical-scroll-proportion="0.13950762" vertical-offset="0" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/multi/MultiApplicationFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="62" selection-start="1793" selection-end="1793" vertical-scroll-proportion="0.0" vertical-offset="243" max-vertical-offset="1734">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/java/ge/test/multi/application/TestMultiFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="20" selection-start="2843" selection-end="2848" vertical-scroll-proportion="0.0" vertical-offset="1178" max-vertical-offset="2074">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;class#TestMultiFrame#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/LockedLocationDialog.java">
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/core/dialog/FramePropertiesDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.025" vertical-offset="0" max-vertical-offset="748">
+        <state line="82" column="43" selection-start="2719" selection-end="2719" vertical-scroll-proportion="0.0" vertical-offset="845" max-vertical-offset="1343">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/single/SingleApplicationFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="16" selection-start="2968" selection-end="2973" vertical-scroll-proportion="-0.7876289" vertical-offset="1317" max-vertical-offset="2006">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/resources/application.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="81" selection-start="2371" selection-end="2371" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1190">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1126#1175#0" expanded="true" />
+            <element signature="e#1219#1268#0" expanded="true" />
+            <element signature="e#1313#1362#0" expanded="true" />
+            <element signature="e#1406#1455#0" expanded="true" />
+            <element signature="e#1497#1544#0" expanded="true" />
+            <element signature="e#1587#1634#0" expanded="true" />
+            <element signature="e#2145#2194#0" expanded="true" />
+            <element signature="e#2238#2287#0" expanded="true" />
+            <element signature="e#2425#2474#0" expanded="true" />
+            <element signature="e#2516#2563#0" expanded="true" />
+            <element signature="e#2606#2653#0" expanded="true" />
+            <element signature="e#3093#3125#0" expanded="true" />
+            <element signature="e#3468#3511#0" expanded="true" />
+            <element signature="e#3762#3811#0" expanded="true" />
+            <element signature="e#3855#3904#0" expanded="true" />
+            <element signature="e#3949#3998#0" expanded="true" />
+            <element signature="e#4042#4091#0" expanded="true" />
+            <element signature="e#4133#4180#0" expanded="true" />
+            <element signature="e#4223#4270#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/OpenLocationDialog.java">
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/multi/command/button/ApplicationPropertiesCommandButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="62" selection-start="951" selection-end="951" vertical-scroll-proportion="0.375" vertical-offset="136" max-vertical-offset="1173">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="18" column="64" selection-start="526" selection-end="554" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/multi/command/FileCommandBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="35" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/multi/objects/MultiFrameConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="206" selection-end="206" vertical-scroll-proportion="0.125" vertical-offset="0" max-vertical-offset="680">
+        <state line="10" column="53" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/buttons/ApplicationPropertiesButton.java">
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/core/objects/FrameConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="28" selection-start="741" selection-end="741" vertical-scroll-proportion="0.575" vertical-offset="0" max-vertical-offset="680">
+        <state line="54" column="29" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1411">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/src/java/ge/test/multi/application/TestMultiApplicationConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="13" selection-start="565" selection-end="565" vertical-scroll-proportion="0.47791165" vertical-offset="0" max-vertical-offset="498">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#447#462#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/ApplicationPropertiesDialog.java">
+    <entry file="file://$PROJECT_DIR$/Application/src/java/ge/test/multi/application/TestFrameConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="39" selection-start="1556" selection-end="1556" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1785">
+        <state line="19" column="57" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#440#455#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/core/ApplicationFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="39" selection-start="4374" selection-end="4395" vertical-scroll-proportion="0.33282444" vertical-offset="598" max-vertical-offset="6205">
+        <state line="632" column="34" selection-start="19214" selection-end="19214" vertical-scroll-proportion="0.0" vertical-offset="8522" max-vertical-offset="9248">
           <folding>
-            <element signature="method#initialise#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="method#loadFrameConfiguration#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="method#saveFrameConfiguration#0;class#ApplicationFrame#0" expanded="false" />
+            <element signature="method#ApplicationFrame#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#initialiseFrame#0;class#ApplicationFrame#0" expanded="false" />
             <element signature="method#close#0;class#ApplicationFrame#0" expanded="false" />
-            <element signature="method#processWindowClose#0;class#ApplicationFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/buttons/OpenFrameButton.java">
+    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/core/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="32" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/frame/multi/MultiApplicationFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="91" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/buttons/NewFrameButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="24" selection-start="705" selection-end="705" vertical-scroll-proportion="0.575" vertical-offset="0" max-vertical-offset="680">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/ApplicationStandardDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="14" selection-start="613" selection-end="613" vertical-scroll-proportion="0.33235294" vertical-offset="63" max-vertical-offset="952">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/src/java/ge/utils/problem/ProblemBannerPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="11" selection-start="1150" selection-end="1150" vertical-scroll-proportion="-2.875" vertical-offset="2244" max-vertical-offset="2924">
+        <state line="52" column="19" selection-start="1418" selection-end="1418" vertical-scroll-proportion="0.0" vertical-offset="496" max-vertical-offset="1802">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/dialog/NewDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="477" column="73" selection-start="16647" selection-end="16647" vertical-scroll-proportion="-0.11764706" vertical-offset="8189" max-vertical-offset="9826">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/multi/MultiFrameApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="464" column="57" selection-start="14651" selection-end="14651" vertical-scroll-proportion="0.08235294" vertical-offset="6863" max-vertical-offset="10064">
+        <state line="187" column="4" selection-start="5450" selection-end="5450" vertical-scroll-proportion="-0.41843972" vertical-offset="2582" max-vertical-offset="7548">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#MultiFrameApplication#0" expanded="true" />
-            <element signature="e#3218#3269#0" expanded="true" />
+            <element signature="method#isExitProcessRequired#0;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#closeOrExit#0;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#validateBeanObject#0;class#MultiFrameApplication#0" expanded="false" />
             <element signature="method#loadApplicationConfiguration#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getMacImage#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setMacImage#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getMacIcon#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setMacIcon#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getLargeIcon#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setLargeIcon#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getLargeImage#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setLargeImage#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getSmallIcon#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setSmallIcon#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getSmallImage#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setSmallImage#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getDescription#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setDescription#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getFrameDefinitions#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setFrameDefinitions#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getApplicationConfigurationName#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setApplicationConfigurationName#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getApplicationMetaDataName#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setApplicationMetaDataName#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getApplicationConfigurationClass#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setApplicationConfigurationClass#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getAllowedRecentlyOpenedCount#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getUnmarshallerListener#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setUnmarshallerListener#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getMarshallerListener#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#setMarshallerListener#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#getRecentlyOpened#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#clearRecent#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="method#discoverFocusedFrame#0;class#MultiFrameApplication#0" expanded="false" />
-            <element signature="class#ApplicationWindowAdapter#0;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#saveApplicationConfiguration#0;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#openFrame#0;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#openFrame#1;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#removeFrame#0;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#processNew#0;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#processNew#1;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#processNew#2;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#processOpen#0;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#processOpen#1;class#MultiFrameApplication#0" expanded="false" />
+            <element signature="method#processClose#0;class#MultiFrameApplication#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/single/SingleFrameApplication.java">
+    <entry file="file://$PROJECT_DIR$/sys.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="24" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="1564">
-          <folding>
-            <element signature="method#validateBeanObject#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="method#setFrameDefinition#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="method#getFrameDefinition#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="class#ApplicationWindowAdapter#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="method#closeOrExit#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="method#getFocusedFrame#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="method#closeAllFrames#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="method#isExitProcessRequired#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="method#updateApplication#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="method#isAskBeforeExit#0;class#SingleFrameApplication#0" expanded="false" />
-            <element signature="method#setAskBeforeExit#0;class#SingleFrameApplication#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application Framework/src/java/ge/framework/application/ApplicationFramework.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="22" selection-start="4553" selection-end="4553" vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2159">
+        <state line="3423" column="0" selection-start="776931" selection-end="776931" vertical-scroll-proportion="14.050817" vertical-offset="50449" max-vertical-offset="58293">
           <folding />
         </state>
       </provider>

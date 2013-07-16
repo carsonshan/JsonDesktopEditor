@@ -1,6 +1,5 @@
 package ge.framework.application.multi.dialog.panel;
 
-import ge.framework.application.core.Application;
 import ge.framework.application.multi.MultiFrameApplication;
 import ge.utils.problem.ProblemBannerPanel;
 
@@ -18,7 +17,7 @@ public class ApplicationProblemBannerPanel extends ProblemBannerPanel
 {
     private MultiFrameApplication application;
 
-    public ApplicationProblemBannerPanel(MultiFrameApplication application)
+    public ApplicationProblemBannerPanel( MultiFrameApplication application )
     {
         super();
         this.application = application;

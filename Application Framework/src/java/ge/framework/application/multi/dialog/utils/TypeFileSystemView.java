@@ -1,6 +1,5 @@
 package ge.framework.application.multi.dialog.utils;
 
-import ge.framework.frame.core.objects.FrameDefinition;
 import ge.framework.frame.multi.objects.MultiFrameDefinition;
 
 import javax.swing.Icon;

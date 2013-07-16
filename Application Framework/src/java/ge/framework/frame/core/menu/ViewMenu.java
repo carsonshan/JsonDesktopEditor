@@ -73,7 +73,7 @@ public class ViewMenu extends StatusBarEnabledMenu implements JideMenu.PopupMenu
 
         ApplicationDockableFrameMenu frameWindowMenu = applicationFrame.getFrameWindowMenu();
 
-        if (( frameWindowMenu != null ) && ( frameWindowMenu.isEmpty() == false ))
+        if ( ( frameWindowMenu != null ) && ( frameWindowMenu.isEmpty() == false ) )
         {
             add( frameWindowMenu );
             addSeparator();
@@ -119,7 +119,7 @@ public class ViewMenu extends StatusBarEnabledMenu implements JideMenu.PopupMenu
 
         ApplicationCommandBarMenu applicationCommandBarMenu = applicationFrame.getApplicationCommandBarMenu();
 
-        if (( applicationCommandBarMenu != null ) && ( applicationCommandBarMenu.isEmpty() == false ))
+        if ( ( applicationCommandBarMenu != null ) && ( applicationCommandBarMenu.isEmpty() == false ) )
         {
             add( applicationCommandBarMenu );
         }

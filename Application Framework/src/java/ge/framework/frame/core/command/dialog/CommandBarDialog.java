@@ -50,7 +50,8 @@ public class CommandBarDialog extends StandardDialog implements ActionListener
 
     private List<ApplicationCommandBarComponent> selectedValues;
 
-    public CommandBarDialog( ApplicationFrame frame, List<ApplicationCommandBarComponent> applicationCommandBarComponents )
+    public CommandBarDialog( ApplicationFrame frame,
+                             List<ApplicationCommandBarComponent> applicationCommandBarComponents )
     {
         super( frame );
 

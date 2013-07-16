@@ -14,8 +14,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
  * Date: 11/07/13
  * Time: 09:59
  */
-@XmlAccessorType( XmlAccessType.FIELD )
-@XmlAccessorOrder( XmlAccessOrder.ALPHABETICAL )
-public class SingleFrameDefinition<FRAME extends SingleApplicationFrame, CONFIG extends SingleFrameConfiguration> extends FrameDefinition<FRAME,CONFIG>
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorOrder(XmlAccessOrder.ALPHABETICAL)
+public class SingleFrameDefinition<FRAME extends SingleApplicationFrame, CONFIG extends SingleFrameConfiguration> extends
+                                                                                                                  FrameDefinition<FRAME, CONFIG>
 {
 }

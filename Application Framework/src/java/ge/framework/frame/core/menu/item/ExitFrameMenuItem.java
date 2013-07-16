@@ -24,7 +24,7 @@ public class ExitFrameMenuItem extends StatusBarEnabledSpacerMenuItem implements
 
     private Application application;
 
-    public ExitFrameMenuItem(Application application)
+    public ExitFrameMenuItem( Application application )
     {
         this.application = application;
 

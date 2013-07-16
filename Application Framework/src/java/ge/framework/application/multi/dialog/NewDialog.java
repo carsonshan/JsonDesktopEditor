@@ -8,7 +8,6 @@ import com.jidesoft.swing.JideComboBox;
 import com.jidesoft.swing.PartialEtchedBorder;
 import com.jidesoft.swing.PartialLineBorder;
 import com.jidesoft.swing.PartialSide;
-import ge.framework.application.core.Application;
 import ge.framework.application.multi.MultiFrameApplication;
 import ge.framework.frame.core.objects.FrameDefinition;
 import ge.framework.frame.multi.objects.FrameInstanceDetailsObject;

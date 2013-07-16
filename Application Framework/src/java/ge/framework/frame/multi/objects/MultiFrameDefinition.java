@@ -1,16 +1,9 @@
 package ge.framework.frame.multi.objects;
 
-import ge.framework.frame.core.ApplicationFrame;
-import ge.framework.frame.core.objects.FrameConfiguration;
 import ge.framework.frame.core.objects.FrameDefinition;
 import ge.framework.frame.multi.MultiApplicationFrame;
-import ge.framework.frame.single.SingleApplicationFrame;
-import ge.framework.frame.single.objects.SingleFrameConfiguration;
 import ge.utils.file.LockFile;
-import ge.utils.os.OS;
 
-import javax.swing.Icon;
-import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 
@@ -20,7 +13,8 @@ import java.io.IOException;
  * Date: 15/07/13
  * Time: 15:59
  */
-public class MultiFrameDefinition<FRAME extends MultiApplicationFrame, CONFIG extends MultiFrameConfiguration> extends FrameDefinition<FRAME, CONFIG>
+public class MultiFrameDefinition<FRAME extends MultiApplicationFrame, CONFIG extends MultiFrameConfiguration> extends
+                                                                                                               FrameDefinition<FRAME, CONFIG>
 {
     private transient String configurationName;
 

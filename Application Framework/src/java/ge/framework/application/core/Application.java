@@ -40,12 +40,12 @@ public abstract class Application extends ApplicationContextAwareObject
 
         initialiseApplication( args );
 
-        startupApplication(  );
+        startupApplication();
     }
 
     protected abstract void initialiseApplication( String[] args );
 
-    protected abstract void startupApplication(  );
+    protected abstract void startupApplication();
 
     public boolean processExit()
     {
@@ -61,7 +61,7 @@ public abstract class Application extends ApplicationContextAwareObject
             {
                 if ( isAskBeforeExit() == true )
                 {
-                    ExitDialog exitDialog = new ExitDialog(getFocusedFrame());
+                    ExitDialog exitDialog = new ExitDialog( getFocusedFrame() );
 
                     MessageResult messageResult = exitDialog.doModal();
 

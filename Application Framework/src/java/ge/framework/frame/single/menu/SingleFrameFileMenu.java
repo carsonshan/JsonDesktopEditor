@@ -1,5 +1,6 @@
-package ge.framework.frame.core.menu;
+package ge.framework.frame.single.menu;
 
+import ge.framework.frame.core.menu.FileMenu;
 import ge.framework.frame.single.SingleApplicationFrame;
 
 /**
@@ -12,7 +13,7 @@ public class SingleFrameFileMenu extends FileMenu
 {
     public SingleFrameFileMenu( SingleApplicationFrame singleApplicationFrame )
     {
-        super(singleApplicationFrame);
+        super( singleApplicationFrame );
     }
 
     @Override

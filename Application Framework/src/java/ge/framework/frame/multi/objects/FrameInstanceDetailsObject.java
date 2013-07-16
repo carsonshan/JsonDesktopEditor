@@ -1,7 +1,5 @@
 package ge.framework.frame.multi.objects;
 
-import ge.framework.frame.core.objects.FrameDefinition;
-
 import javax.xml.bind.annotation.XmlAccessOrder;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorOrder;

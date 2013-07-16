@@ -12,10 +12,10 @@ import com.jidesoft.swing.JideTabbedPane;
 import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.ApplicationFrameComponent;
 import ge.framework.frame.core.dockable.ApplicationDockableFrame;
+import ge.framework.frame.core.dockable.menu.ApplicationDockableFrameMenu;
 import ge.framework.frame.core.document.ApplicationDocumentComponent;
 import ge.framework.frame.core.document.ApplicationDocumentPane;
 import ge.framework.frame.core.document.menu.ApplicationDocumentComponentMenu;
-import ge.framework.frame.core.dockable.menu.ApplicationDockableFrameMenu;
 import ge.framework.frame.core.manager.menu.ToggleToolButtonsMenuItem;
 import org.apache.log4j.Logger;
 

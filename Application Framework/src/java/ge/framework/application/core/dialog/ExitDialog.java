@@ -25,7 +25,7 @@ public class ExitDialog extends MessageDialog
     private static String alternateCheckBoxText = resources.getResourceString( ExitDialog.class, "alternate",
                                                                                "checkbox" );
 
-    public ExitDialog(ApplicationFrame applicationFrame) throws HeadlessException
+    public ExitDialog( ApplicationFrame applicationFrame ) throws HeadlessException
     {
         super( applicationFrame,
                resources.getResourceString( ExitDialog.class, "message" ),

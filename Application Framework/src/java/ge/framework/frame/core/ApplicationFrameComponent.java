@@ -1,7 +1,6 @@
 package ge.framework.frame.core;
 
 
-import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.menu.item.ApplicationFrameComponentMenuItem;
 
 import javax.swing.Icon;

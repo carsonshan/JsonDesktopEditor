@@ -22,7 +22,7 @@ public class FramesDialog extends ApplicationFrameComponentDialog
 
     public FramesDialog( ApplicationFrame applicationFrame, List<ApplicationFrameComponent> applicationFrameComponents )
     {
-        super( applicationFrame,applicationFrameComponents );
+        super( applicationFrame, applicationFrameComponents );
 
         setTitle( resources.getResourceString( FramesDialog.class, "title" ) );
     }

@@ -21,7 +21,7 @@ public class Main
     {
 //        dumpProperties();
 
-        ApplicationFramework.start( args );
+        ApplicationFramework.start( "Test.Multi.Application",args );
     }
 
     public static void dumpProperties()

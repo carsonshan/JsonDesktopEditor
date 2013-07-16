@@ -33,7 +33,7 @@ public class OtherFrameWindowMenuItem extends OtherApplicationFrameComponentMenu
                 getApplicationFrameComponents();
 
         FramesDialog framesDialog =
-                new FramesDialog(applicationFrame, applicationFrameComponents );
+                new FramesDialog( applicationFrame, applicationFrameComponents );
 
         if ( framesDialog.doModal() == true )
         {

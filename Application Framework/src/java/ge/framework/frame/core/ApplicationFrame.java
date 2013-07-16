@@ -6,12 +6,13 @@ import ge.framework.application.core.Application;
 import ge.framework.application.core.enums.CloseOrExitEnum;
 import ge.framework.frame.core.command.ApplicationCommandBarComponent;
 import ge.framework.frame.core.command.menu.ApplicationCommandBarMenu;
+import ge.framework.frame.core.dialog.properties.AbstractFramePropertiesPage;
+import ge.framework.frame.core.dockable.ApplicationDockableFrame;
+import ge.framework.frame.core.dockable.menu.ApplicationDockableFrameMenu;
 import ge.framework.frame.core.document.ApplicationDocumentComponent;
 import ge.framework.frame.core.document.menu.ApplicationDocumentComponentMenu;
 import ge.framework.frame.core.manager.ApplicationDockableBarManager;
-import ge.framework.frame.core.dockable.ApplicationDockableFrame;
 import ge.framework.frame.core.manager.ApplicationDockingManager;
-import ge.framework.frame.core.dockable.menu.ApplicationDockableFrameMenu;
 import ge.framework.frame.core.manager.menu.ToggleToolButtonsMenuItem;
 import ge.framework.frame.core.menu.FileMenu;
 import ge.framework.frame.core.menu.ViewMenu;
@@ -21,11 +22,9 @@ import ge.framework.frame.core.persistence.ApplicationLayoutPersistenceManager;
 import ge.framework.frame.core.status.ApplicationStatusBar;
 import ge.framework.frame.core.status.enums.StatusBarConstraint;
 import ge.framework.frame.core.status.menu.item.ToggleStatusBarMenuItem;
-import ge.utils.bundle.Resources;
 import ge.utils.controls.breadcrumb.BreadcrumbBar;
 import ge.utils.file.LockFile;
 import ge.utils.os.OS;
-import ge.utils.text.StringArgumentMessageFormat;
 import ge.utils.xml.bind.MarshallerListener;
 import ge.utils.xml.bind.TypedMarshallerListener;
 import ge.utils.xml.bind.TypedUnmarshallerListener;
@@ -50,9 +49,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -60,12 +59,13 @@ import java.util.Map;
  * Date: 29/01/13
  * Time: 11:24
  */
-@SuppressWarnings( "unused" )
-public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITION extends FrameDefinition, CONFIG extends FrameConfiguration> extends JFrame
+@SuppressWarnings("unused")
+public abstract class ApplicationFrame<APPLICATION extends Application, DEFINITION extends FrameDefinition, CONFIG extends FrameConfiguration> extends
+                                                                                                                                               JFrame
 {
     private static Logger logger = Logger.getLogger( ApplicationFrame.class );
 
-    private APPLICATION application;
+    protected APPLICATION application;
 
     protected DEFINITION frameDefinition;
 
@@ -130,6 +130,11 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
         return frameConfiguration;
     }
 
+    public Class<? extends CONFIG> getFrameConfigurationClass()
+    {
+        return frameDefinition.getConfigurationClass();
+    }
+
     protected boolean loadFrameConfiguration( String name )
     {
         File configFile = getConfigurationFile( name );
@@ -145,7 +150,7 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
             {
                 logger.trace( "Failed to find config file: " + configFile.toString() );
 
-                Constructor<? extends CONFIG> constructor = frameConfigurationClass.getConstructor(String.class );
+                Constructor<? extends CONFIG> constructor = frameConfigurationClass.getConstructor( String.class );
 
                 frameConfiguration = constructor.newInstance( name );
 
@@ -248,6 +253,39 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
             throw new IllegalStateException( e.getMessage(), e );
         }
     }
+
+    protected abstract void loadFrameData();
+
+    public abstract List<AbstractFramePropertiesPage> getFrameConfigurationPages();
+
+    @SuppressWarnings( "unchecked" )
+    public final boolean shouldCreateFrameConfigurationMenu()
+    {
+        if ( isFrameConfigurationDialogAllow() == true )
+        {
+            Class clazz = getFrameConfigurationClass();
+
+            while ( clazz != FrameConfiguration.class )
+            {
+                Field[] fields = clazz.getDeclaredFields();
+
+                if ( ( fields != null ) && ( fields.length != 0 ) )
+                {
+                    return true;
+                }
+
+                clazz = clazz.getSuperclass();
+            }
+
+            return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    protected abstract boolean isFrameConfigurationDialogAllow();
 
     protected abstract FileMenu createFileMenu();
 
@@ -472,8 +510,8 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
 
         saveLayoutData();
 
-        frameConfiguration.setStatusBarVisible( statusBar.isVisible() );
-        frameConfiguration.setToolButtonsVisible( dockingManager.isAutoHideAreaVisible() );
+        frameConfiguration.setStatusBarVisible( isStatusBarVisible() );
+        frameConfiguration.setToolButtonsVisible( isAutoHideAreaVisible() );
 
         saveFrameConfiguration();
     }
@@ -560,7 +598,7 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
         marshallerListener.setListener( aClass, listener );
     }
 
-    public Application getApplication()
+    public APPLICATION getApplication()
     {
         return application;
     }
@@ -585,7 +623,7 @@ public abstract class ApplicationFrame<APPLICATION extends Application,DEFINITIO
         {
             Application application = applicationFrame.getApplication();
 
-            if (( applicationFrame.isManualClose() == true ) ||
+            if ( ( applicationFrame.isManualClose() == true ) ||
                     ( application.closeOrExit() == CloseOrExitEnum.CLOSE ) )
             {
                 applicationFrame.closing();

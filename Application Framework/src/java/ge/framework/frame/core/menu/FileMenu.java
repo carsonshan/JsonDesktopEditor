@@ -7,6 +7,7 @@ import ge.framework.frame.core.menu.file.AdditionalFileMenuComponent;
 import ge.framework.frame.core.menu.file.AdditionalFileMenuItem;
 import ge.framework.frame.core.menu.file.AdditionalFileMenuSeparator;
 import ge.framework.frame.core.menu.item.ExitFrameMenuItem;
+import ge.framework.frame.core.menu.item.FramePropertiesMenuItem;
 import ge.framework.frame.core.status.menu.StatusBarEnabledMenu;
 import ge.utils.bundle.Resources;
 
@@ -20,18 +21,20 @@ import java.util.List;
  * Date: 19/02/13
  * Time: 17:44
  */
-public abstract class FileMenu extends StatusBarEnabledMenu implements JideMenu.PopupMenuCustomizer
+public abstract class FileMenu<FRAME extends ApplicationFrame> extends StatusBarEnabledMenu implements JideMenu.PopupMenuCustomizer
 {
     private static final Resources resources =
             Resources.getInstance( "ge.framework.frame.resources" );
 
-    private final ApplicationFrame applicationFrame;
+    protected final FRAME applicationFrame;
+
+    private FramePropertiesMenuItem framePropertiesMenuItem;
 
     private ExitFrameMenuItem exitMenuItem;
 
     private List<AdditionalFileMenuComponent> additionalMenuItems = new ArrayList<AdditionalFileMenuComponent>();
 
-    public FileMenu( ApplicationFrame applicationFrame )
+    public FileMenu( FRAME applicationFrame )
     {
         super();
 
@@ -47,7 +50,12 @@ public abstract class FileMenu extends StatusBarEnabledMenu implements JideMenu.
         setStatusBarText( resources.getResourceString( FileMenu.class, "status" ) );
         setPopupMenuCustomizer( this );
 
-        exitMenuItem = new ExitFrameMenuItem(applicationFrame.getApplication());
+        if ( applicationFrame.shouldCreateFrameConfigurationMenu() == true )
+        {
+            framePropertiesMenuItem = new FramePropertiesMenuItem( applicationFrame );
+        }
+
+        exitMenuItem = new ExitFrameMenuItem( applicationFrame.getApplication() );
 
         initialiseOtherMenuItems();
     }
@@ -73,6 +81,13 @@ public abstract class FileMenu extends StatusBarEnabledMenu implements JideMenu.
             removeAll();
 
             customizeOtherMenuItems();
+
+            if ( framePropertiesMenuItem != null )
+            {
+                add( framePropertiesMenuItem );
+            }
+
+            addSeparator();
 
             if ( additionalMenuItems.isEmpty() == false )
             {

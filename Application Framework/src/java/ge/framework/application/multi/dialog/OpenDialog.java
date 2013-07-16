@@ -7,7 +7,6 @@ import com.jidesoft.swing.JideComboBox;
 import com.jidesoft.swing.PartialEtchedBorder;
 import com.jidesoft.swing.PartialLineBorder;
 import com.jidesoft.swing.PartialSide;
-import ge.framework.application.core.Application;
 import ge.framework.application.multi.MultiFrameApplication;
 import ge.framework.application.multi.dialog.utils.TypeFolderChooser;
 import ge.framework.frame.core.objects.FrameDefinition;
@@ -66,9 +65,9 @@ public class OpenDialog extends ApplicationStandardDialog implements ActionListe
 
     private FrameInstanceDetailsObject frameInstanceDetailsObject;
 
-    public OpenDialog(MultiFrameApplication application)
+    public OpenDialog( MultiFrameApplication application )
     {
-        super(application);
+        super( application );
 
         initialiseDialog();
     }
@@ -209,7 +208,8 @@ public class OpenDialog extends ApplicationStandardDialog implements ActionListe
         if ( source == okButton )
         {
             frameInstanceDetailsObject = new FrameInstanceDetailsObject();
-            frameInstanceDetailsObject.setFrameDefinition( ( MultiFrameDefinition ) frameDefinitionField.getSelectedItem() );
+            frameInstanceDetailsObject
+                    .setFrameDefinition( ( MultiFrameDefinition ) frameDefinitionField.getSelectedItem() );
             frameInstanceDetailsObject.setLocation( new File( pathField.getText() ) );
 
             result = true;

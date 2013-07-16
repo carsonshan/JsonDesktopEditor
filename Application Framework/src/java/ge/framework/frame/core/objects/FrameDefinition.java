@@ -1,8 +1,6 @@
 package ge.framework.frame.core.objects;
 
 import ge.framework.frame.core.ApplicationFrame;
-import ge.framework.frame.single.SingleApplicationFrame;
-import ge.framework.frame.single.objects.SingleFrameConfiguration;
 import ge.utils.os.OS;
 import ge.utils.spring.ApplicationContextAwareObject;
 
@@ -22,7 +20,8 @@ import java.io.File;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlAccessorOrder(XmlAccessOrder.ALPHABETICAL)
-public abstract class FrameDefinition<FRAME extends ApplicationFrame, CONFIG extends FrameConfiguration> extends ApplicationContextAwareObject
+public abstract class FrameDefinition<FRAME extends ApplicationFrame, CONFIG extends FrameConfiguration> extends
+                                                                                                         ApplicationContextAwareObject
 {
     private transient String metaDataName;
 

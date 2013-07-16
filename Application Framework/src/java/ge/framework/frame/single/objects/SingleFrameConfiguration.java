@@ -13,8 +13,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
  * Date: 11/07/13
  * Time: 10:02
  */
-@XmlAccessorType( XmlAccessType.FIELD )
-@XmlAccessorOrder( XmlAccessOrder.ALPHABETICAL )
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorOrder(XmlAccessOrder.ALPHABETICAL)
 public class SingleFrameConfiguration extends FrameConfiguration
 {
     private boolean askBeforeExit = true;

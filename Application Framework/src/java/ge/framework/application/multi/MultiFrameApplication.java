@@ -86,7 +86,7 @@ public abstract class MultiFrameApplication extends Application
 
     private ApplicationConfiguration configuration;
 
-    private ApplicationWindowAdapter applicationWindowAdapter = new ApplicationWindowAdapter(this);
+    private ApplicationWindowAdapter applicationWindowAdapter = new ApplicationWindowAdapter( this );
 
     private static Map<FrameInstanceDetailsObject, MultiApplicationFrame> frames =
             new HashMap<FrameInstanceDetailsObject, MultiApplicationFrame>();
@@ -123,7 +123,7 @@ public abstract class MultiFrameApplication extends Application
 
     private void showInitialDialog()
     {
-        InitialDialog initialDialog = new InitialDialog(this);
+        InitialDialog initialDialog = new InitialDialog( this );
 
         initialDialog.doModal();
 
@@ -133,43 +133,67 @@ public abstract class MultiFrameApplication extends Application
     @Override
     protected void updateApplication()
     {
-
+        saveApplicationConfiguration();
     }
 
     @Override
     protected ApplicationFrame getFocusedFrame()
     {
-        return null;
+        ApplicationFrame applicationFrame = null;
+
+        for ( ApplicationFrame frame : frames.values() )
+        {
+            if ( frame.isFocused() == true )
+            {
+                applicationFrame = frame;
+                break;
+            }
+        }
+
+        return applicationFrame;
     }
 
     @Override
     protected void closeAllFrames()
     {
+        logger.debug( "Closing frames." );
 
+        for ( ApplicationFrame frame : frames.values() )
+        {
+            frame.removeWindowListener( applicationWindowAdapter );
+            frame.close();
+        }
     }
 
     @Override
     protected boolean isAskBeforeExit()
     {
-        return false;
+        return configuration.isAskBeforeExit();
     }
 
     @Override
     protected void setAskBeforeExit( boolean askBeforeExit )
     {
-
+        configuration.setAskBeforeExit( askBeforeExit );
     }
 
     @Override
     protected boolean isExitProcessRequired()
     {
-        return false;
+        return frames.isEmpty();
     }
 
     @Override
     public CloseOrExitEnum closeOrExit()
     {
-        return null;
+        if ( ( frames.size() == 1 ) && ( configuration.isExitOnFinalWindowClose() == true ) )
+        {
+            return CloseOrExitEnum.EXIT;
+        }
+        else
+        {
+            return CloseOrExitEnum.CLOSE;
+        }
     }
 
     @Override
@@ -247,9 +271,9 @@ public abstract class MultiFrameApplication extends Application
                 logger.trace( "Failed to find config file: " + configFile.toString() );
 
                 Constructor<? extends ApplicationConfiguration> constructor =
-                        applicationConfigurationClass.getConstructor( null );
+                        applicationConfigurationClass.getConstructor();
 
-                configuration = constructor.newInstance( null );
+                configuration = constructor.newInstance();
 
                 saveApplicationConfiguration();
             }
@@ -336,7 +360,7 @@ public abstract class MultiFrameApplication extends Application
     }
 
     public boolean openFrame( FrameInstanceDetailsObject frameInstanceDetailsObject,
-                                     boolean requiresValidation )
+                              boolean requiresValidation )
     {
         ApplicationFrame applicationFrame = discoverFocusedFrame();
 
@@ -344,8 +368,8 @@ public abstract class MultiFrameApplication extends Application
     }
 
     private boolean openFrame( ApplicationFrame applicationFrame,
-                                      FrameInstanceDetailsObject frameInstanceDetailsObject,
-                                      boolean requiresValidation )
+                               FrameInstanceDetailsObject frameInstanceDetailsObject,
+                               boolean requiresValidation )
     {
         if ( ( requiresValidation == true ) &&
                 ( validateFrameInstanceDetails( frameInstanceDetailsObject ) == false ) )
@@ -357,7 +381,7 @@ public abstract class MultiFrameApplication extends Application
 
         if ( ( applicationFrame != null ) && ( openLocation == OpenLocationEnum.ASK ) )
         {
-            OpenLocationDialog openLocationDialog = new OpenLocationDialog(this);
+            OpenLocationDialog openLocationDialog = new OpenLocationDialog( this );
 
             openLocation = openLocationDialog.showMessage();
 
@@ -390,9 +414,9 @@ public abstract class MultiFrameApplication extends Application
             Class<? extends MultiApplicationFrame> frameClass = frameDefinition.getFrameClass();
 
             Constructor<? extends MultiApplicationFrame> constructor =
-                    frameClass.getConstructor();
+                    frameClass.getConstructor(MultiFrameApplication.class);
 
-            MultiApplicationFrame newApplicationFrame = constructor.newInstance();
+            MultiApplicationFrame newApplicationFrame = constructor.newInstance(this);
 
             newApplicationFrame.initialise( frameDefinition );
 
@@ -490,7 +514,7 @@ public abstract class MultiFrameApplication extends Application
     {
         ApplicationFrame applicationFrame = discoverFocusedFrame();
 
-        OpenDialog openDialog = new OpenDialog(this);
+        OpenDialog openDialog = new OpenDialog( this );
 
         if ( openDialog.doModal() == true )
         {
@@ -498,6 +522,12 @@ public abstract class MultiFrameApplication extends Application
         }
 
         return false;
+    }
+
+    public void processClose()
+    {
+        ApplicationFrame applicationFrame = discoverFocusedFrame();
+        applicationFrame.close();
     }
 
     public void processApplicationProperties( InitialDialog initialDialog )
@@ -511,7 +541,7 @@ public abstract class MultiFrameApplication extends Application
 
     public void processApplicationProperties()
     {
-        ApplicationPropertiesDialog dialog = new ApplicationPropertiesDialog(this);
+        ApplicationPropertiesDialog dialog = new ApplicationPropertiesDialog( this );
 
         dialog.doModal();
 

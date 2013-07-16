@@ -52,7 +52,7 @@ public class RecentPanel extends JPanel implements ActionListener
 
     private MultiFrameApplication application;
 
-    public RecentPanel(MultiFrameApplication application)
+    public RecentPanel( MultiFrameApplication application )
     {
         super( new BorderLayout() );
         this.application = application;
