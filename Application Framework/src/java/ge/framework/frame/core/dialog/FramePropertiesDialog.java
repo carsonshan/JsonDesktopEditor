@@ -4,6 +4,7 @@ import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.dialog.properties.AbstractFramePropertiesPage;
 import ge.framework.frame.core.objects.FrameConfiguration;
 import ge.framework.frame.core.objects.FrameDefinition;
+import ge.framework.frame.multi.MultiApplicationFrame;
 import ge.utils.bundle.Resources;
 import ge.utils.properties.PropertiesDialog;
 import ge.utils.properties.PropertiesDialogPage;
@@ -27,9 +28,9 @@ public class FramePropertiesDialog extends PropertiesDialog<FrameConfiguration>
     private static Resources resources = Resources.getInstance(
             "ge.framework.frame.resources" );
 
-    private ApplicationFrame applicationFrame;
+    private MultiApplicationFrame applicationFrame;
 
-    public FramePropertiesDialog( ApplicationFrame applicationFrame )
+    public FramePropertiesDialog( MultiApplicationFrame applicationFrame )
     {
         super( applicationFrame, applicationFrame.getFrameConfiguration() );
         this.applicationFrame = applicationFrame;
@@ -74,19 +75,8 @@ public class FramePropertiesDialog extends PropertiesDialog<FrameConfiguration>
     }
 
     @Override
-    protected List<PropertiesDialogPage<FrameConfiguration>> getPages()
+    protected final List<PropertiesDialogPage> getPages()
     {
-        List<PropertiesDialogPage<FrameConfiguration>> retVal =
-                new ArrayList<PropertiesDialogPage<FrameConfiguration>>();
-
-        List<AbstractFramePropertiesPage> frameConfigurationPages =
-                applicationFrame.getFrameConfigurationPages();
-
-        if ( ( frameConfigurationPages != null ) && ( frameConfigurationPages.isEmpty() == false ) )
-        {
-            retVal.addAll( frameConfigurationPages );
-        }
-
-        return retVal;
+        return applicationFrame.getFrameConfigurationPages();
     }
 }

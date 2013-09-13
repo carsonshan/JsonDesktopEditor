@@ -21,7 +21,8 @@ public class Main
     {
 //        dumpProperties();
 
-        ApplicationFramework.start( "Test.Multi.Application",args );
+//        ApplicationFramework.start( "Test.Multi.Application", args );
+        ApplicationFramework.start( "JsonEditor.Application",args );
     }
 
     public static void dumpProperties()

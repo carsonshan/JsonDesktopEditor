@@ -1,6 +1,6 @@
-package ge.framework.application.multi.dialog.properties;
+package ge.framework.application.core.dialog.properties;
 
-import ge.framework.application.multi.objects.ApplicationConfiguration;
+import ge.framework.application.core.objects.ApplicationConfiguration;
 import ge.utils.properties.PropertiesDialogPage;
 
 /**

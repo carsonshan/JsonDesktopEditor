@@ -1,5 +1,6 @@
 package ge.framework.frame.single.objects;
 
+import ge.framework.frame.core.objects.FrameConfiguration;
 import ge.framework.frame.core.objects.FrameDefinition;
 import ge.framework.frame.single.SingleApplicationFrame;
 
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlAccessorOrder(XmlAccessOrder.ALPHABETICAL)
-public class SingleFrameDefinition<FRAME extends SingleApplicationFrame, CONFIG extends SingleFrameConfiguration> extends
+public class SingleFrameDefinition<FRAME extends SingleApplicationFrame, CONFIG extends FrameConfiguration> extends
                                                                                                                   FrameDefinition<FRAME, CONFIG>
 {
 }

@@ -60,16 +60,13 @@ import java.util.List;
  * Time: 11:24
  */
 @SuppressWarnings("unused")
-public abstract class ApplicationFrame<APPLICATION extends Application, DEFINITION extends FrameDefinition, CONFIG extends FrameConfiguration> extends
-                                                                                                                                               JFrame
+public abstract class ApplicationFrame<APPLICATION extends Application, DEFINITION extends FrameDefinition> extends JFrame
 {
     private static Logger logger = Logger.getLogger( ApplicationFrame.class );
 
     protected APPLICATION application;
 
     protected DEFINITION frameDefinition;
-
-    protected CONFIG frameConfiguration;
 
     private ApplicationFrameWindowAdapter applicationFrameWindowAdapter;
 
@@ -88,12 +85,6 @@ public abstract class ApplicationFrame<APPLICATION extends Application, DEFINITI
     private ViewMenu viewMenu;
 
     private boolean manualClose;
-
-    private LockFile lockFile;
-
-    private TypedMarshallerListener marshallerListener = new TypedMarshallerListener();
-
-    private TypedUnmarshallerListener unmarshallerListener = new TypedUnmarshallerListener();
 
     public ApplicationFrame( APPLICATION application ) throws HeadlessException
     {
@@ -125,167 +116,7 @@ public abstract class ApplicationFrame<APPLICATION extends Application, DEFINITI
         }
     }
 
-    public CONFIG getFrameConfiguration()
-    {
-        return frameConfiguration;
-    }
-
-    public Class<? extends CONFIG> getFrameConfigurationClass()
-    {
-        return frameDefinition.getConfigurationClass();
-    }
-
-    protected boolean loadFrameConfiguration( String name )
-    {
-        File configFile = getConfigurationFile( name );
-
-        logger.trace( "Loading FrameConfiguration from: " + configFile.toString() );
-
-        try
-        {
-            Class<? extends CONFIG> frameConfigurationClass = frameDefinition.getConfigurationClass();
-
-            boolean retVal;
-            if ( configFile.exists() == false )
-            {
-                logger.trace( "Failed to find config file: " + configFile.toString() );
-
-                Constructor<? extends CONFIG> constructor = frameConfigurationClass.getConstructor( String.class );
-
-                frameConfiguration = constructor.newInstance( name );
-
-                saveFrameConfiguration();
-
-                retVal = false;
-            }
-            else
-            {
-                JAXBContext requestContext = JAXBContext.newInstance( frameConfigurationClass );
-
-                Unmarshaller unmarshaller = requestContext.createUnmarshaller();
-                unmarshaller.setListener( unmarshallerListener );
-
-                logger.trace( "Found config file: " + configFile.toString() );
-
-                frameConfiguration = ( CONFIG ) unmarshaller.unmarshal( configFile );
-
-                retVal = true;
-            }
-
-            lockFile = new LockFile( configFile );
-            lockFile.lockFile();
-
-            return retVal;
-        }
-        catch ( JAXBException e )
-        {
-            logger.fatal( e.getMessage(), e );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( NoSuchMethodException e )
-        {
-            logger.fatal( e.getMessage() );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( InvocationTargetException e )
-        {
-            logger.fatal( e.getMessage() );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( InstantiationException e )
-        {
-            logger.fatal( e.getMessage() );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( IllegalAccessException e )
-        {
-            logger.fatal( e.getMessage() );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( IOException e )
-        {
-            logger.fatal( e.getMessage() );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-    }
-
-    protected abstract File getConfigurationFile( String name );
-
-    public final void saveFrameConfiguration()
-    {
-        File configFile = getConfigurationFile( frameConfiguration.getName() );
-
-        logger.trace( "Saving FrameConfiguration to: " + configFile.toString() );
-
-        Class<? extends CONFIG> frameConfigurationClass = frameDefinition.getConfigurationClass();
-
-        try
-        {
-            if ( configFile.exists() == false )
-            {
-                File parentFile = configFile.getParentFile();
-
-                if ( ( parentFile.exists() == false ) || ( parentFile.isDirectory() == false ) )
-                {
-                    parentFile.mkdirs();
-                }
-            }
-
-            JAXBContext requestContext = JAXBContext.newInstance( frameConfigurationClass );
-
-            Marshaller marshaller = requestContext.createMarshaller();
-            marshaller.setListener( marshallerListener );
-
-            marshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
-
-            FileOutputStream fos = new FileOutputStream( configFile );
-
-            marshaller.marshal( frameConfiguration, fos );
-        }
-        catch ( JAXBException e )
-        {
-            logger.fatal( e.getMessage(), e );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( FileNotFoundException e )
-        {
-            logger.fatal( e.getMessage(), e );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-    }
-
     protected abstract void loadFrameData();
-
-    public abstract List<AbstractFramePropertiesPage> getFrameConfigurationPages();
-
-    @SuppressWarnings( "unchecked" )
-    public final boolean shouldCreateFrameConfigurationMenu()
-    {
-        if ( isFrameConfigurationDialogAllow() == true )
-        {
-            Class clazz = getFrameConfigurationClass();
-
-            while ( clazz != FrameConfiguration.class )
-            {
-                Field[] fields = clazz.getDeclaredFields();
-
-                if ( ( fields != null ) && ( fields.length != 0 ) )
-                {
-                    return true;
-                }
-
-                clazz = clazz.getSuperclass();
-            }
-
-            return false;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    protected abstract boolean isFrameConfigurationDialogAllow();
 
     protected abstract FileMenu createFileMenu();
 
@@ -344,17 +175,7 @@ public abstract class ApplicationFrame<APPLICATION extends Application, DEFINITI
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent( windowEvent );
     }
 
-    protected final void processWindowClose()
-    {
-        saveFrame();
-        try
-        {
-            lockFile.release();
-        }
-        catch ( IOException ignored )
-        {
-        }
-    }
+    protected abstract void processWindowClose();
 
     final void closing()
     {
@@ -510,11 +331,10 @@ public abstract class ApplicationFrame<APPLICATION extends Application, DEFINITI
 
         saveLayoutData();
 
-        frameConfiguration.setStatusBarVisible( isStatusBarVisible() );
-        frameConfiguration.setToolButtonsVisible( isAutoHideAreaVisible() );
-
-        saveFrameConfiguration();
+        saveApplicationFrame();
     }
+
+    protected abstract void saveApplicationFrame();
 
     protected abstract void saveFrameData();
 
@@ -576,26 +396,6 @@ public abstract class ApplicationFrame<APPLICATION extends Application, DEFINITI
     public boolean isManualClose()
     {
         return manualClose;
-    }
-
-    public UnmarshallerListener getUnmarshallerListener( Class aClass )
-    {
-        return unmarshallerListener.getListener( aClass );
-    }
-
-    public void setUnmarshallerListener( Class aClass, UnmarshallerListener listener )
-    {
-        unmarshallerListener.setListener( aClass, listener );
-    }
-
-    public MarshallerListener getMarshallerListener( Class aClass )
-    {
-        return marshallerListener.getListener( aClass );
-    }
-
-    public void setMarshallerListener( Class aClass, MarshallerListener listener )
-    {
-        marshallerListener.setListener( aClass, listener );
     }
 
     public APPLICATION getApplication()

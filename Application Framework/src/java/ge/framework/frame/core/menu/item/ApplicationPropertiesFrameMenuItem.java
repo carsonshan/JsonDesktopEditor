@@ -1,5 +1,6 @@
-package ge.framework.frame.multi.menu.item;
+package ge.framework.frame.core.menu.item;
 
+import ge.framework.application.core.Application;
 import ge.framework.application.multi.MultiFrameApplication;
 import ge.framework.frame.core.status.menu.item.StatusBarEnabledSpacerMenuItem;
 import ge.utils.bundle.Resources;
@@ -18,9 +19,9 @@ public class ApplicationPropertiesFrameMenuItem extends StatusBarEnabledSpacerMe
     private static final Resources resources =
             Resources.getInstance( "ge.framework.frame.resources" );
 
-    private MultiFrameApplication application;
+    private Application application;
 
-    public ApplicationPropertiesFrameMenuItem( MultiFrameApplication application )
+    public ApplicationPropertiesFrameMenuItem( Application application )
     {
         this.application = application;
         setText( resources.getResourceString( this.getClass(), "label" ) );

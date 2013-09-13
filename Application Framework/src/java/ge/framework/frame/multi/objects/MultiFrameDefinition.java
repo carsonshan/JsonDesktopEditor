@@ -1,5 +1,6 @@
 package ge.framework.frame.multi.objects;
 
+import ge.framework.frame.core.objects.FrameConfiguration;
 import ge.framework.frame.core.objects.FrameDefinition;
 import ge.framework.frame.multi.MultiApplicationFrame;
 import ge.utils.file.LockFile;
@@ -13,7 +14,7 @@ import java.io.IOException;
  * Date: 15/07/13
  * Time: 15:59
  */
-public class MultiFrameDefinition<FRAME extends MultiApplicationFrame, CONFIG extends MultiFrameConfiguration> extends
+public class MultiFrameDefinition<FRAME extends MultiApplicationFrame, CONFIG extends FrameConfiguration> extends
                                                                                                                FrameDefinition<FRAME, CONFIG>
 {
     private transient String configurationName;

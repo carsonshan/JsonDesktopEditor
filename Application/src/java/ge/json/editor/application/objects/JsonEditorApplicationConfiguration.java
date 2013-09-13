@@ -1,6 +1,7 @@
-package ge.test.multi.application;
+package ge.json.editor.application.objects;
 
-import ge.framework.frame.core.objects.FrameConfiguration;
+import ge.framework.application.core.objects.ApplicationConfiguration;
+import ge.framework.application.single.objects.SingleApplicationConfiguration;
 
 import javax.xml.bind.annotation.XmlAccessOrder;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,20 +12,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Created with IntelliJ IDEA.
  * User: evison_g
- * Date: 16/07/13
- * Time: 15:42
+ * Date: 17/07/13
+ * Time: 14:06
  */
 @XmlRootElement
 @XmlAccessorType( XmlAccessType.FIELD )
 @XmlAccessorOrder( XmlAccessOrder.ALPHABETICAL )
-public class TestFrameConfiguration extends FrameConfiguration
+public class JsonEditorApplicationConfiguration extends SingleApplicationConfiguration
 {
-    public TestFrameConfiguration()
-    {
-    }
-
-    public TestFrameConfiguration( String name )
-    {
-        super( name );
-    }
 }

@@ -59,7 +59,7 @@ public abstract class PropertiesDialog<PROPERTIES extends PropertyDialogObject> 
 
     private JButton cancelButton;
 
-    private List<PropertiesDialogPage<PROPERTIES>> pages = new ArrayList<PropertiesDialogPage<PROPERTIES>>();
+    private List<PropertiesDialogPage> pages = new ArrayList<PropertiesDialogPage>();
 
     private Map<String, PropertiesDialogPage<PROPERTIES>> pageMap =
             new HashMap<String, PropertiesDialogPage<PROPERTIES>>();
@@ -190,7 +190,7 @@ public abstract class PropertiesDialog<PROPERTIES extends PropertyDialogObject> 
         return contentPanel;
     }
 
-    protected abstract List<PropertiesDialogPage<PROPERTIES>> getPages();
+    protected abstract List<PropertiesDialogPage> getPages();
 
     private Component createIndexPanel()
     {

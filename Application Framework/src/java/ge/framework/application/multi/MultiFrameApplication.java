@@ -2,47 +2,42 @@ package ge.framework.application.multi;
 
 import ge.framework.application.core.Application;
 import ge.framework.application.core.enums.CloseOrExitEnum;
-import ge.framework.application.multi.dialog.ApplicationPropertiesDialog;
+import ge.framework.application.core.dialog.ApplicationPropertiesDialog;
 import ge.framework.application.multi.dialog.InitialDialog;
 import ge.framework.application.multi.dialog.LockedLocationDialog;
 import ge.framework.application.multi.dialog.MissingLocationDialog;
 import ge.framework.application.multi.dialog.NewDialog;
 import ge.framework.application.multi.dialog.OpenDialog;
 import ge.framework.application.multi.dialog.OpenLocationDialog;
-import ge.framework.application.multi.dialog.properties.AbstractApplicationPropertiesPage;
-import ge.framework.application.multi.objects.ApplicationConfiguration;
+import ge.framework.application.core.objects.ApplicationConfiguration;
+import ge.framework.application.core.dialog.properties.AbstractApplicationPropertiesPage;
+import ge.framework.application.multi.dialog.properties.GeneralMultiApplicationPropertiesPage;
+import ge.framework.application.multi.objects.MultiApplicationConfiguration;
 import ge.framework.application.multi.objects.enums.OpenLocationEnum;
 import ge.framework.frame.core.ApplicationFrame;
+import ge.framework.frame.core.dialog.properties.AbstractFramePropertiesPage;
+import ge.framework.frame.core.objects.FrameConfiguration;
 import ge.framework.frame.core.objects.FrameDefinition;
 import ge.framework.frame.multi.MultiApplicationFrame;
 import ge.framework.frame.multi.objects.FrameInstanceDetailsObject;
-import ge.framework.frame.multi.objects.MultiFrameConfiguration;
 import ge.framework.frame.multi.objects.MultiFrameDefinition;
 import ge.utils.os.OS;
-import ge.utils.xml.bind.MarshallerListener;
-import ge.utils.xml.bind.TypedMarshallerListener;
-import ge.utils.xml.bind.TypedUnmarshallerListener;
-import ge.utils.xml.bind.UnmarshallerListener;
+import ge.utils.properties.PropertiesDialogPage;
 import org.apache.log4j.Logger;
 
 import javax.swing.Icon;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
 import java.awt.Image;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import static org.springframework.util.Assert.notEmpty;
+import static org.springframework.util.Assert.notNull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -50,21 +45,9 @@ import java.util.Set;
  * Date: 15/07/13
  * Time: 15:45
  */
-public abstract class MultiFrameApplication extends Application
+public abstract class MultiFrameApplication<CONFIG extends MultiApplicationConfiguration> extends Application<CONFIG>
 {
     private static Logger logger = Logger.getLogger( Application.class );
-
-    private static File userDirectory = new File( System.getProperty( "user.home" ) );
-
-    private TypedUnmarshallerListener unmarshallerListener;
-
-    private TypedMarshallerListener marshallerListener;
-
-    private Class<? extends ApplicationConfiguration> applicationConfigurationClass;
-
-    private String applicationMetaDataName;
-
-    private String applicationConfigurationName;
 
     private List<MultiFrameDefinition> frameDefinitions;
 
@@ -84,9 +67,33 @@ public abstract class MultiFrameApplication extends Application
 
     private String macImage;
 
-    private ApplicationConfiguration configuration;
-
     private ApplicationWindowAdapter applicationWindowAdapter = new ApplicationWindowAdapter( this );
+
+    @Override
+    protected void validateApplicationObject()
+    {
+        notEmpty( frameDefinitions );
+        notNull( applicationConfigurationClass );
+        notNull( applicationMetaDataName );
+        notNull( applicationConfigurationName );
+        notNull( smallImage );
+        notNull( smallIcon );
+        notNull( largeImage );
+        notNull( largeIcon );
+
+        if ( OS.isMac() == true )
+        {
+            notNull( macIcon );
+            notNull( macImage );
+        }
+
+        frameDefinitionsMap = new HashMap<String, MultiFrameDefinition>();
+
+        for ( MultiFrameDefinition frameDefinition : frameDefinitions )
+        {
+            frameDefinitionsMap.put( frameDefinition.getBeanName(), frameDefinition );
+        }
+    }
 
     private static Map<FrameInstanceDetailsObject, MultiApplicationFrame> frames =
             new HashMap<FrameInstanceDetailsObject, MultiApplicationFrame>();
@@ -94,13 +101,6 @@ public abstract class MultiFrameApplication extends Application
     @Override
     protected void startupApplication()
     {
-        unmarshallerListener = new TypedUnmarshallerListener();
-        marshallerListener = new TypedMarshallerListener();
-
-        loadApplicationConfiguration();
-
-        initialiseApplicationConfiguration();
-
         List<FrameInstanceDetailsObject> open = configuration.getOpen();
 
         if ( ( configuration.isReOpenLast() == true ) && ( open != null ) )
@@ -166,13 +166,13 @@ public abstract class MultiFrameApplication extends Application
     }
 
     @Override
-    protected boolean isAskBeforeExit()
+    public boolean isAskBeforeExit()
     {
         return configuration.isAskBeforeExit();
     }
 
     @Override
-    protected void setAskBeforeExit( boolean askBeforeExit )
+    public void setAskBeforeExit( boolean askBeforeExit )
     {
         configuration.setAskBeforeExit( askBeforeExit );
     }
@@ -196,168 +196,34 @@ public abstract class MultiFrameApplication extends Application
         }
     }
 
-    @Override
-    protected void validateBeanObject()
+    protected final void initialiseApplicationConfiguration()
     {
-        frameDefinitionsMap = new HashMap<String, MultiFrameDefinition>();
+        configuration.initialiseDetails( frameDefinitionsMap );
 
-        for ( MultiFrameDefinition frameDefinition : frameDefinitions )
-        {
-            frameDefinitionsMap.put( frameDefinition.getBeanName(), frameDefinition );
-        }
-
-        if ( applicationConfigurationClass == null )
-        {
-            throw new IllegalStateException( "applicationConfigurationClass cannot be null" );
-        }
-
-        if ( ( applicationMetaDataName == null ) || ( applicationMetaDataName.isEmpty() == true ) )
-        {
-            throw new IllegalStateException( "applicationMetaDataName cannot be null or empty." );
-        }
-
-        if ( ( applicationConfigurationName == null ) || ( applicationConfigurationName.isEmpty() == true ) )
-        {
-            throw new IllegalStateException( "applicationConfigurationName cannot be null or empty." );
-        }
-
-        if ( smallImage == null )
-        {
-            throw new IllegalStateException( "smallImage cannot be null" );
-        }
-
-        if ( smallIcon == null )
-        {
-            throw new IllegalStateException( "smallIcon cannot be null" );
-        }
-
-        if ( largeImage == null )
-        {
-            throw new IllegalStateException( "largeImage cannot be null" );
-        }
-
-        if ( largeIcon == null )
-        {
-            throw new IllegalStateException( "largeIcon cannot be null" );
-        }
-
-        if ( OS.isMac() == true )
-        {
-            if ( macIcon == null )
-            {
-                throw new IllegalStateException( "macIcon cannot be null" );
-            }
-
-            if ( macImage == null )
-            {
-                throw new IllegalStateException( "macImage cannot be null" );
-            }
-        }
+        initialiseMultiFrameApplicationConfiguration();
     }
 
-    protected abstract void initialiseApplicationConfiguration();
+    protected abstract void initialiseMultiFrameApplicationConfiguration();
 
-    private void loadApplicationConfiguration()
+    public final List<PropertiesDialogPage<? extends ApplicationConfiguration>> getApplicationConfigurationPages()
     {
-        File metadataDirectory = new File( userDirectory, applicationMetaDataName );
-        File configFile = new File( metadataDirectory, applicationConfigurationName );
+        List<PropertiesDialogPage<? extends ApplicationConfiguration>> retVal = new ArrayList<PropertiesDialogPage<? extends ApplicationConfiguration>>(  );
 
-        logger.trace( "Loading ApplicationConfiguration from: " + configFile.toString() );
+        retVal.add( new GeneralMultiApplicationPropertiesPage() );
 
-        try
+        List<AbstractApplicationPropertiesPage> multiApplicationConfigurationPages =
+                getMultiApplicationConfigurationPages();
+
+        if (( multiApplicationConfigurationPages != null ) && ( multiApplicationConfigurationPages.isEmpty() == false ))
         {
-            if ( configFile.exists() == false )
-            {
-                logger.trace( "Failed to find config file: " + configFile.toString() );
-
-                Constructor<? extends ApplicationConfiguration> constructor =
-                        applicationConfigurationClass.getConstructor();
-
-                configuration = constructor.newInstance();
-
-                saveApplicationConfiguration();
-            }
-            else
-            {
-                JAXBContext requestContext = JAXBContext.newInstance( applicationConfigurationClass );
-
-                Unmarshaller unmarshaller = requestContext.createUnmarshaller();
-                unmarshaller.setListener( unmarshallerListener );
-
-                logger.trace( "Found config file: " + configFile.toString() );
-                configuration = ( ApplicationConfiguration ) unmarshaller.unmarshal( configFile );
-            }
-
-            configuration.initialiseDetails( frameDefinitionsMap );
+            retVal.addAll( multiApplicationConfigurationPages );
         }
-        catch ( JAXBException e )
-        {
-            logger.fatal( e.getMessage(), e );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( NoSuchMethodException e )
-        {
-            logger.fatal( e.getMessage() );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( InvocationTargetException e )
-        {
-            logger.fatal( e.getMessage() );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( InstantiationException e )
-        {
-            logger.fatal( e.getMessage() );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( IllegalAccessException e )
-        {
-            logger.fatal( e.getMessage() );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
+
+        return retVal;
     }
 
-    protected void saveApplicationConfiguration()
-    {
-        File metadataDirectory = new File( userDirectory, applicationMetaDataName );
-        File configFile = new File( metadataDirectory, applicationConfigurationName );
+    public abstract List<AbstractApplicationPropertiesPage> getMultiApplicationConfigurationPages();
 
-        logger.trace( "Saving ApplicationConfiguration to: " + configFile.toString() );
-
-        try
-        {
-            if ( configFile.exists() == false )
-            {
-                File parentFile = configFile.getParentFile();
-
-                if ( ( parentFile.exists() == false ) || ( parentFile.isDirectory() == false ) )
-                {
-                    parentFile.mkdirs();
-                }
-            }
-
-            JAXBContext requestContext = JAXBContext.newInstance( applicationConfigurationClass );
-
-            Marshaller marshaller = requestContext.createMarshaller();
-            marshaller.setListener( marshallerListener );
-
-            marshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, true );
-
-            FileOutputStream fos = new FileOutputStream( configFile );
-
-            marshaller.marshal( configuration, fos );
-        }
-        catch ( JAXBException e )
-        {
-            logger.fatal( e.getMessage(), e );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-        catch ( FileNotFoundException e )
-        {
-            logger.fatal( e.getMessage(), e );
-            throw new IllegalStateException( e.getMessage(), e );
-        }
-    }
 
     public boolean openFrame( FrameInstanceDetailsObject frameInstanceDetailsObject,
                               boolean requiresValidation )
@@ -425,8 +291,8 @@ public abstract class MultiFrameApplication extends Application
 
             newApplicationFrame.open( frameInstanceDetailsObject );
 
-            MultiFrameConfiguration frameConfiguration =
-                    ( MultiFrameConfiguration ) newApplicationFrame.getFrameConfiguration();
+            FrameConfiguration frameConfiguration =
+                    ( FrameConfiguration ) newApplicationFrame.getFrameConfiguration();
 
             frameInstanceDetailsObject.setName( frameConfiguration.getName() );
 
@@ -533,15 +399,6 @@ public abstract class MultiFrameApplication extends Application
     public void processApplicationProperties( InitialDialog initialDialog )
     {
         ApplicationPropertiesDialog dialog = new ApplicationPropertiesDialog( initialDialog, this );
-
-        dialog.doModal();
-
-        saveApplicationConfiguration();
-    }
-
-    public void processApplicationProperties()
-    {
-        ApplicationPropertiesDialog dialog = new ApplicationPropertiesDialog( this );
 
         dialog.doModal();
 
@@ -658,65 +515,9 @@ public abstract class MultiFrameApplication extends Application
         this.frameDefinitions = frameDefinitions;
     }
 
-    public String getApplicationConfigurationName()
-    {
-        return applicationConfigurationName;
-    }
-
-    public void setApplicationConfigurationName( String applicationConfigurationName )
-    {
-        testInitialised();
-        this.applicationConfigurationName = applicationConfigurationName;
-    }
-
-    public String getApplicationMetaDataName()
-    {
-        return applicationMetaDataName;
-    }
-
-    public void setApplicationMetaDataName( String applicationMetaDataName )
-    {
-        testInitialised();
-        this.applicationMetaDataName = applicationMetaDataName;
-    }
-
-    public Class<? extends ApplicationConfiguration> getApplicationConfigurationClass()
-    {
-        return applicationConfigurationClass;
-    }
-
-    public void setApplicationConfigurationClass(
-            Class<? extends ApplicationConfiguration> applicationConfigurationClass )
-    {
-        testInitialised();
-        this.applicationConfigurationClass = applicationConfigurationClass;
-    }
-
     public final int getAllowedRecentlyOpenedCount()
     {
         return configuration.getAllowedRecentlyOpenedCount();
-    }
-
-    public abstract List<AbstractApplicationPropertiesPage> getApplicationConfigurationPages();
-
-    public UnmarshallerListener getUnmarshallerListener( Class aClass )
-    {
-        return unmarshallerListener.getListener( aClass );
-    }
-
-    public void setUnmarshallerListener( Class aClass, UnmarshallerListener listener )
-    {
-        unmarshallerListener.setListener( aClass, listener );
-    }
-
-    public MarshallerListener getMarshallerListener( Class aClass )
-    {
-        return marshallerListener.getListener( aClass );
-    }
-
-    public void setMarshallerListener( Class aClass, MarshallerListener listener )
-    {
-        marshallerListener.setListener( aClass, listener );
     }
 
     public ArrayList<FrameInstanceDetailsObject> getRecentlyOpened()
@@ -756,11 +557,6 @@ public abstract class MultiFrameApplication extends Application
         }
 
         return applicationFrame;
-    }
-
-    public ApplicationConfiguration getConfiguration()
-    {
-        return configuration;
     }
 
     public static class ApplicationWindowAdapter extends WindowAdapter

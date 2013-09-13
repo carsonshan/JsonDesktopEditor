@@ -4,6 +4,7 @@ import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.dialog.FramePropertiesDialog;
 import ge.framework.frame.core.objects.FrameDefinition;
 import ge.framework.frame.core.status.menu.item.StatusBarEnabledSpacerMenuItem;
+import ge.framework.frame.multi.MultiApplicationFrame;
 import ge.utils.bundle.Resources;
 import ge.utils.text.StringArgumentMessageFormat;
 
@@ -23,9 +24,9 @@ public class FramePropertiesMenuItem extends StatusBarEnabledSpacerMenuItem impl
     private static final Resources resources =
             Resources.getInstance( "ge.framework.frame.resources" );
 
-    private final ApplicationFrame applicationFrame;
+    private final MultiApplicationFrame applicationFrame;
 
-    public FramePropertiesMenuItem( ApplicationFrame applicationFrame )
+    public FramePropertiesMenuItem( MultiApplicationFrame applicationFrame )
     {
         this.applicationFrame = applicationFrame;
         addActionListener( this );

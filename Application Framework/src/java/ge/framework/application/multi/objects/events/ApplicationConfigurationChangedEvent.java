@@ -1,7 +1,7 @@
 package ge.framework.application.multi.objects.events;
 
 
-import ge.framework.application.multi.objects.ApplicationConfiguration;
+import ge.framework.application.core.objects.ApplicationConfiguration;
 
 /**
  * Created with IntelliJ IDEA.

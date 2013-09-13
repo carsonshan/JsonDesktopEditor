@@ -6,9 +6,11 @@ import ge.framework.frame.core.menu.file.AdditionalFileMenu;
 import ge.framework.frame.core.menu.file.AdditionalFileMenuComponent;
 import ge.framework.frame.core.menu.file.AdditionalFileMenuItem;
 import ge.framework.frame.core.menu.file.AdditionalFileMenuSeparator;
+import ge.framework.frame.core.menu.item.ApplicationPropertiesFrameMenuItem;
 import ge.framework.frame.core.menu.item.ExitFrameMenuItem;
 import ge.framework.frame.core.menu.item.FramePropertiesMenuItem;
 import ge.framework.frame.core.status.menu.StatusBarEnabledMenu;
+import ge.framework.frame.multi.MultiApplicationFrame;
 import ge.utils.bundle.Resources;
 
 import javax.swing.JPopupMenu;
@@ -28,7 +30,9 @@ public abstract class FileMenu<FRAME extends ApplicationFrame> extends StatusBar
 
     protected final FRAME applicationFrame;
 
-    private FramePropertiesMenuItem framePropertiesMenuItem;
+    protected FramePropertiesMenuItem framePropertiesMenuItem;
+
+    private ApplicationPropertiesFrameMenuItem applicationPropertiesMenuItem;
 
     private ExitFrameMenuItem exitMenuItem;
 
@@ -50,10 +54,7 @@ public abstract class FileMenu<FRAME extends ApplicationFrame> extends StatusBar
         setStatusBarText( resources.getResourceString( FileMenu.class, "status" ) );
         setPopupMenuCustomizer( this );
 
-        if ( applicationFrame.shouldCreateFrameConfigurationMenu() == true )
-        {
-            framePropertiesMenuItem = new FramePropertiesMenuItem( applicationFrame );
-        }
+        applicationPropertiesMenuItem = new ApplicationPropertiesFrameMenuItem( applicationFrame.getApplication() );
 
         exitMenuItem = new ExitFrameMenuItem( applicationFrame.getApplication() );
 
@@ -81,6 +82,8 @@ public abstract class FileMenu<FRAME extends ApplicationFrame> extends StatusBar
             removeAll();
 
             customizeOtherMenuItems();
+
+            add( applicationPropertiesMenuItem );
 
             if ( framePropertiesMenuItem != null )
             {

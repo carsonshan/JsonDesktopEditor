@@ -2,7 +2,7 @@ package ge.framework.application.multi.dialog.properties;
 
 import com.jidesoft.swing.PartialLineBorder;
 import com.jidesoft.swing.PartialSide;
-import ge.framework.application.multi.objects.ApplicationConfiguration;
+import ge.framework.application.multi.objects.MultiApplicationConfiguration;
 import ge.framework.application.multi.objects.enums.OpenLocationEnum;
 import ge.utils.bundle.Resources;
 import ge.utils.controls.EnumeratedButtonGroup;
@@ -36,7 +36,7 @@ import java.util.List;
  * Date: 15/02/13
  * Time: 18:34
  */
-public class GeneralApplicationPropertiesPage extends PropertiesDialogPage<ApplicationConfiguration> implements
+public class GeneralMultiApplicationPropertiesPage extends PropertiesDialogPage<MultiApplicationConfiguration> implements
                                                                                                      ActionListener,
                                                                                                      ChangeListener
 {
@@ -59,7 +59,7 @@ public class GeneralApplicationPropertiesPage extends PropertiesDialogPage<Appli
 
     private JRadioButton confirmWindow;
 
-    public GeneralApplicationPropertiesPage()
+    public GeneralMultiApplicationPropertiesPage()
     {
         super( "general" );
     }
@@ -67,13 +67,13 @@ public class GeneralApplicationPropertiesPage extends PropertiesDialogPage<Appli
     @Override
     public String getPageTitle()
     {
-        return resources.getResourceString( GeneralApplicationPropertiesPage.class, "title" );
+        return resources.getResourceString( GeneralMultiApplicationPropertiesPage.class, "title" );
     }
 
     @Override
     public Icon getPageIcon()
     {
-        return resources.getResourceIcon( GeneralApplicationPropertiesPage.class, "icon" );
+        return resources.getResourceIcon( GeneralMultiApplicationPropertiesPage.class, "icon" );
     }
 
     @Override
@@ -95,22 +95,22 @@ public class GeneralApplicationPropertiesPage extends PropertiesDialogPage<Appli
     private Component createStartupShutdownSection()
     {
         reopenLast =
-                new JCheckBox( resources.getResourceString( GeneralApplicationPropertiesPage.class, "reopenLast" ) );
+                new JCheckBox( resources.getResourceString( GeneralMultiApplicationPropertiesPage.class, "reopenLast" ) );
         reopenLast.addActionListener( this );
 
         confirmExit =
-                new JCheckBox( resources.getResourceString( GeneralApplicationPropertiesPage.class, "confirmExit" ) );
+                new JCheckBox( resources.getResourceString( GeneralMultiApplicationPropertiesPage.class, "confirmExit" ) );
         confirmExit.addActionListener( this );
 
         exitOnLastWindowClose =
-                new JCheckBox( resources.getResourceString( GeneralApplicationPropertiesPage.class,
+                new JCheckBox( resources.getResourceString( GeneralMultiApplicationPropertiesPage.class,
                                                             "exitOnLastWindowClose" ) );
         exitOnLastWindowClose.addActionListener( this );
 
         JPanel startupShutdownPanel = new JPanel( new GridLayout( 3, 1 ) );
         startupShutdownPanel.setBorder(
                 new TitledBorder( new PartialLineBorder( Color.GRAY, 1, PartialSide.NORTH ),
-                                  resources.getResourceString( GeneralApplicationPropertiesPage.class,
+                                  resources.getResourceString( GeneralMultiApplicationPropertiesPage.class,
                                                                "startupShutdown" ) ) );
 
         startupShutdownPanel.add( reopenLast );
@@ -123,15 +123,15 @@ public class GeneralApplicationPropertiesPage extends PropertiesDialogPage<Appli
     private Component createOpeningSection()
     {
         openInNewWindow = new JRadioButton(
-                resources.getResourceString( GeneralApplicationPropertiesPage.class, "openInNewWindow" ) );
+                resources.getResourceString( GeneralMultiApplicationPropertiesPage.class, "openInNewWindow" ) );
         openInNewWindow.addActionListener( this );
 
         openInSameWindow = new JRadioButton(
-                resources.getResourceString( GeneralApplicationPropertiesPage.class, "openInSameWindow" ) );
+                resources.getResourceString( GeneralMultiApplicationPropertiesPage.class, "openInSameWindow" ) );
         openInSameWindow.addActionListener( this );
 
         confirmWindow = new JRadioButton(
-                resources.getResourceString( GeneralApplicationPropertiesPage.class, "confirmWindow" ) );
+                resources.getResourceString( GeneralMultiApplicationPropertiesPage.class, "confirmWindow" ) );
         confirmWindow.addActionListener( this );
 
         openingButtonGroup = new EnumeratedButtonGroup<OpenLocationEnum>();
@@ -142,7 +142,7 @@ public class GeneralApplicationPropertiesPage extends PropertiesDialogPage<Appli
         JPanel openingPanel = new JPanel( new GridLayout( 3, 1 ) );
         openingPanel.setBorder(
                 new TitledBorder( new PartialLineBorder( Color.GRAY, 1, PartialSide.NORTH ),
-                                  resources.getResourceString( GeneralApplicationPropertiesPage.class,
+                                  resources.getResourceString( GeneralMultiApplicationPropertiesPage.class,
                                                                "openingFrame" ) ) );
 
         openingPanel.add( openInNewWindow );
@@ -157,7 +157,7 @@ public class GeneralApplicationPropertiesPage extends PropertiesDialogPage<Appli
         JPanel recentlyOpenedPanel = new JPanel( new FlowLayout( FlowLayout.LEADING ) );
         recentlyOpenedPanel.setBorder(
                 new TitledBorder( new PartialLineBorder( Color.GRAY, 1, PartialSide.NORTH ),
-                                  resources.getResourceString( GeneralApplicationPropertiesPage.class,
+                                  resources.getResourceString( GeneralMultiApplicationPropertiesPage.class,
                                                                "recentlyOpened" ) ) );
 
         SpinnerModel spinnerModel = new SpinnerNumberModel( 0, 0, 99, 1 );
@@ -165,14 +165,14 @@ public class GeneralApplicationPropertiesPage extends PropertiesDialogPage<Appli
         allowedRecently.addChangeListener( this );
 
         recentlyOpenedPanel.add( new JLabel(
-                resources.getResourceString( GeneralApplicationPropertiesPage.class, "allowedRecently" ) ) );
+                resources.getResourceString( GeneralMultiApplicationPropertiesPage.class, "allowedRecently" ) ) );
         recentlyOpenedPanel.add( allowedRecently );
 
         return recentlyOpenedPanel;
     }
 
     @Override
-    public void setCurrentValues( ApplicationConfiguration applicationConfiguration )
+    public void setCurrentValues( MultiApplicationConfiguration applicationConfiguration )
     {
         reopenLast.setSelected( applicationConfiguration.isReOpenLast() );
         confirmExit.setSelected( applicationConfiguration.isAskBeforeExit() );
@@ -188,7 +188,7 @@ public class GeneralApplicationPropertiesPage extends PropertiesDialogPage<Appli
     }
 
     @Override
-    public void updateProperties( ApplicationConfiguration applicationConfiguration )
+    public void updateProperties( MultiApplicationConfiguration applicationConfiguration )
     {
         applicationConfiguration.setReOpenLast( reopenLast.isSelected() );
         applicationConfiguration.setAskBeforeExit( confirmExit.isSelected() );

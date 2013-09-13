@@ -1,15 +1,27 @@
 package ge.framework.application.single;
 
 import ge.framework.application.core.Application;
+import ge.framework.application.core.dialog.properties.AbstractApplicationPropertiesPage;
 import ge.framework.application.core.enums.CloseOrExitEnum;
+import ge.framework.application.core.objects.ApplicationConfiguration;
+import ge.framework.application.multi.dialog.properties.GeneralMultiApplicationPropertiesPage;
+import ge.framework.application.single.dialog.properties.GeneralSingleApplicationPropertiesPage;
+import ge.framework.application.single.objects.SingleApplicationConfiguration;
 import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.single.SingleApplicationFrame;
 import ge.framework.frame.single.objects.SingleFrameDefinition;
+import ge.utils.properties.PropertiesDialogPage;
 import org.apache.log4j.Logger;
+import org.springframework.util.Assert;
 
+import javax.swing.Icon;
+import java.awt.Frame;
+import java.awt.Image;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.springframework.util.Assert.notNull;
 
@@ -20,7 +32,7 @@ import static org.springframework.util.Assert.notNull;
  * Time: 07:47
  */
 public abstract class SingleFrameApplication<FRAME extends SingleApplicationFrame, DEFINITION extends SingleFrameDefinition> extends
-                                                                                                                             Application
+                                                                                                                             Application<SingleApplicationConfiguration>
 {
     private static Logger logger = Logger.getLogger( SingleFrameApplication.class );
 
@@ -61,7 +73,7 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
     }
 
     @Override
-    protected final void validateBeanObject()
+    protected void validateApplicationObject()
     {
         notNull( frameDefinition );
     }
@@ -75,6 +87,26 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
     public final DEFINITION getFrameDefinition()
     {
         return frameDefinition;
+    }
+
+    public boolean isStatusBarVisible()
+    {
+        return configuration.isStatusBarVisible();
+    }
+
+    public boolean isToolButtonsVisible()
+    {
+        return configuration.isToolButtonsVisible();
+    }
+
+    public void setStatusBarVisible( boolean statusBarVisible )
+    {
+        configuration.setStatusBarVisible( statusBarVisible );
+    }
+
+    public void setToolButtonsVisible( boolean autoHideAreaVisible )
+    {
+        configuration.setToolButtonsVisible( autoHideAreaVisible );
     }
 
     public static class ApplicationWindowAdapter extends WindowAdapter
@@ -104,6 +136,24 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
     }
 
     @Override
+    public Frame discoverFocusedFrame()
+    {
+        return applicationFrame;
+    }
+
+    @Override
+    public Icon getLargeIcon()
+    {
+        return frameDefinition.getLargeIcon();
+    }
+
+    @Override
+    public Image getSmallImage()
+    {
+        return frameDefinition.getSmallImage();
+    }
+
+    @Override
     protected ApplicationFrame getFocusedFrame()
     {
         return applicationFrame;
@@ -127,15 +177,31 @@ public abstract class SingleFrameApplication<FRAME extends SingleApplicationFram
     {
     }
 
-    @Override
-    protected boolean isAskBeforeExit()
+    protected final void initialiseApplicationConfiguration()
     {
-        return applicationFrame.isAskBeforeExit();
+        initialiseSingleFrameApplicationConfiguration();
     }
 
-    @Override
-    protected void setAskBeforeExit( boolean askBeforeExit )
+    protected abstract void initialiseSingleFrameApplicationConfiguration();
+
+    public final List<PropertiesDialogPage<? extends ApplicationConfiguration>> getApplicationConfigurationPages()
     {
-        applicationFrame.setAskBeforeExit( askBeforeExit );
+        List<PropertiesDialogPage<? extends ApplicationConfiguration>> retVal =
+                new ArrayList<PropertiesDialogPage<? extends ApplicationConfiguration>>();
+
+        retVal.add( new GeneralSingleApplicationPropertiesPage() );
+
+        List<AbstractApplicationPropertiesPage> multiApplicationConfigurationPages =
+                getSingleApplicationConfigurationPages();
+
+        if ( ( multiApplicationConfigurationPages != null ) &&
+                ( multiApplicationConfigurationPages.isEmpty() == false ) )
+        {
+            retVal.addAll( multiApplicationConfigurationPages );
+        }
+
+        return retVal;
     }
+
+    public abstract List<AbstractApplicationPropertiesPage> getSingleApplicationConfigurationPages();
 }

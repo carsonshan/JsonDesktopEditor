@@ -1,12 +1,10 @@
 package ge.framework.frame.multi.menu;
 
-import ge.framework.application.core.Application;
 import ge.framework.application.multi.MultiFrameApplication;
-import ge.framework.frame.core.ApplicationFrame;
 import ge.framework.frame.core.menu.FileMenu;
-import ge.framework.frame.core.objects.FrameDefinition;
+import ge.framework.frame.core.menu.item.FramePropertiesMenuItem;
 import ge.framework.frame.multi.MultiApplicationFrame;
-import ge.framework.frame.multi.menu.item.ApplicationPropertiesFrameMenuItem;
+import ge.framework.frame.core.menu.item.ApplicationPropertiesFrameMenuItem;
 import ge.framework.frame.multi.menu.item.CloseFrameMenuItem;
 import ge.framework.frame.multi.menu.item.NewMenuItem;
 import ge.framework.frame.multi.menu.item.OpenFrameMenuItem;
@@ -32,8 +30,6 @@ public class MultiFrameFileMenu extends FileMenu<MultiApplicationFrame>
 
     private CloseFrameMenuItem closeMenuItem;
 
-    private ApplicationPropertiesFrameMenuItem applicationPropertiesMenuItem;
-
     public MultiFrameFileMenu( MultiApplicationFrame applicationFrame )
     {
         super( applicationFrame );
@@ -45,6 +41,11 @@ public class MultiFrameFileMenu extends FileMenu<MultiApplicationFrame>
         MultiFrameApplication application = ( MultiFrameApplication ) applicationFrame.getApplication();
 
         List<MultiFrameDefinition> availableFrameConfigurationNames = application.getFrameDefinitions();
+
+        if ( applicationFrame.shouldCreateFrameConfigurationMenu() == true )
+        {
+            framePropertiesMenuItem = new FramePropertiesMenuItem(  applicationFrame );
+        }
 
         if ( availableFrameConfigurationNames.size() == 1 )
         {
@@ -60,8 +61,6 @@ public class MultiFrameFileMenu extends FileMenu<MultiApplicationFrame>
         openMenuItem = new OpenFrameMenuItem( application );
         recentlyOpenedMenu = new RecentlyOpenedMenu( application );
         closeMenuItem = new CloseFrameMenuItem(application);
-
-        applicationPropertiesMenuItem = new ApplicationPropertiesFrameMenuItem(application);
     }
 
     @Override
@@ -80,6 +79,5 @@ public class MultiFrameFileMenu extends FileMenu<MultiApplicationFrame>
         add( recentlyOpenedMenu );
         add( closeMenuItem );
         addSeparator();
-        add( applicationPropertiesMenuItem );
     }
 }

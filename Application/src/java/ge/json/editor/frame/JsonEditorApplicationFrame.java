@@ -1,20 +1,17 @@
 package ge.json.editor.frame;
 
 import com.jidesoft.action.DockableBarContext;
-import ge.framework.frame.core.dialog.properties.AbstractFramePropertiesPage;
 import ge.framework.frame.core.dockable.ApplicationDockableFrame;
 import ge.framework.frame.core.menu.FileMenu;
 import ge.framework.frame.single.SingleApplicationFrame;
 import ge.framework.frame.core.command.ApplicationCommandMenuBar;
 import ge.framework.frame.core.menu.ViewMenu;
 import ge.json.editor.application.JsonEditorApplication;
-import ge.json.editor.frame.objects.JsonEditorFrameConfiguration;
 import ge.utils.bundle.Resources;
 import ge.utils.controls.breadcrumb.BreadcrumbBar;
 import org.jdom2.Element;
 
 import java.awt.HeadlessException;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,7 +19,7 @@ import java.util.List;
  * Date: 11/07/13
  * Time: 07:59
  */
-public class JsonEditorApplicationFrame extends SingleApplicationFrame<JsonEditorApplication,JsonEditorFrameConfiguration>
+public class JsonEditorApplicationFrame extends SingleApplicationFrame<JsonEditorApplication>
 {
     private static final Resources resources = Resources.getInstance( "ge.json.editor.application.resources" );
 
@@ -58,18 +55,6 @@ public class JsonEditorApplicationFrame extends SingleApplicationFrame<JsonEdito
     protected void loadFrameData()
     {
 
-    }
-
-    @Override
-    protected List<AbstractFramePropertiesPage> getOtherFrameConfigurationPages()
-    {
-        return null;
-    }
-
-    @Override
-    protected boolean isFrameConfigurationDialogAllow()
-    {
-        return true;
     }
 
     @Override

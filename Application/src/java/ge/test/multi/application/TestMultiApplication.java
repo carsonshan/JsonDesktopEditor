@@ -1,7 +1,7 @@
 package ge.test.multi.application;
 
 import ge.framework.application.multi.MultiFrameApplication;
-import ge.framework.application.multi.dialog.properties.AbstractApplicationPropertiesPage;
+import ge.framework.application.core.dialog.properties.AbstractApplicationPropertiesPage;
 
 import java.util.List;
 
@@ -14,20 +14,20 @@ import java.util.List;
 public class TestMultiApplication extends MultiFrameApplication
 {
     @Override
-    protected void initialiseApplicationConfiguration()
-    {
-
-    }
-
-    @Override
-    public List<AbstractApplicationPropertiesPage> getApplicationConfigurationPages()
-    {
-        return null;
-    }
-
-    @Override
     protected void initialiseApplication( String[] args )
     {
 
+    }
+
+    @Override
+    protected void initialiseMultiFrameApplicationConfiguration()
+    {
+
+    }
+
+    @Override
+    public List<AbstractApplicationPropertiesPage> getMultiApplicationConfigurationPages()
+    {
+        return null;
     }
 }

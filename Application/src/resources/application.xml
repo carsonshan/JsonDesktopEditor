@@ -47,6 +47,9 @@
         <property name="name" value="${JsonEditor.Application.name}"/>
         <property name="allowMultipleApplications" value="false"/>
         <property name="frameDefinition" ref="JsonEditor.Application.JsonEditor"/>
+        <property name="applicationConfigurationClass" value="ge.json.editor.application.objects.JsonEditorApplicationConfiguration"/>
+        <property name="applicationConfigurationName" value="JsonEditor.af"/>
+        <property name="applicationMetaDataName" value=".jsonEditor"/>
     </bean>
 
     <bean id="JsonEditor.Application.JsonEditor" class="ge.framework.frame.single.objects.SingleFrameDefinition"

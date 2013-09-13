@@ -1,9 +1,11 @@
-package ge.framework.application.multi.dialog;
+package ge.framework.application.core.dialog;
 
+import ge.framework.application.core.Application;
 import ge.framework.application.multi.MultiFrameApplication;
-import ge.framework.application.multi.dialog.properties.AbstractApplicationPropertiesPage;
-import ge.framework.application.multi.dialog.properties.GeneralApplicationPropertiesPage;
-import ge.framework.application.multi.objects.ApplicationConfiguration;
+import ge.framework.application.multi.dialog.InitialDialog;
+import ge.framework.application.core.dialog.properties.AbstractApplicationPropertiesPage;
+import ge.framework.application.multi.dialog.properties.GeneralMultiApplicationPropertiesPage;
+import ge.framework.application.core.objects.ApplicationConfiguration;
 import ge.utils.bundle.Resources;
 import ge.utils.properties.PropertiesDialog;
 import ge.utils.properties.PropertiesDialogPage;
@@ -27,9 +29,9 @@ public class ApplicationPropertiesDialog extends PropertiesDialog<ApplicationCon
     private static Resources resources = Resources.getInstance(
             "ge.framework.application.resources" );
 
-    private MultiFrameApplication application;
+    private Application application;
 
-    public ApplicationPropertiesDialog( InitialDialog initialDialog, MultiFrameApplication application )
+    public ApplicationPropertiesDialog( InitialDialog initialDialog, Application application )
     {
         super( initialDialog, application.getConfiguration() );
 
@@ -38,7 +40,7 @@ public class ApplicationPropertiesDialog extends PropertiesDialog<ApplicationCon
         initializeDialog();
     }
 
-    public ApplicationPropertiesDialog( MultiFrameApplication application )
+    public ApplicationPropertiesDialog( Application application )
     {
         super( application.discoverFocusedFrame(), application.getConfiguration() );
 
@@ -83,21 +85,8 @@ public class ApplicationPropertiesDialog extends PropertiesDialog<ApplicationCon
     }
 
     @Override
-    protected final List<PropertiesDialogPage<ApplicationConfiguration>> getPages()
+    protected final List<PropertiesDialogPage> getPages()
     {
-        List<PropertiesDialogPage<ApplicationConfiguration>> retVal =
-                new ArrayList<PropertiesDialogPage<ApplicationConfiguration>>();
-
-        retVal.add( new GeneralApplicationPropertiesPage() );
-
-        List<AbstractApplicationPropertiesPage> applicationConfigurationPages =
-                application.getApplicationConfigurationPages();
-
-        if ( ( applicationConfigurationPages != null ) && ( applicationConfigurationPages.isEmpty() == false ) )
-        {
-            retVal.addAll( applicationConfigurationPages );
-        }
-
-        return retVal;
+        return application.getApplicationConfigurationPages();
     }
 }
